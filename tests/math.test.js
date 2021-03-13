@@ -1,6 +1,5 @@
-import {
-  round
-} from '../src/math/index.js';
+import { round } from '../src';
+
 describe.only('math/round', () => {
   test('round() is a function', () => expect(round).toBeInstanceOf(Function))
 
