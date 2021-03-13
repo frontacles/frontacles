@@ -1,9 +1,9 @@
 {
   "name": "frontacles",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "Front-end utilities for artisans",
   "type": "module",
-  "exports": "./src/index.js",
+  "exports": "./src",
   "engines": {
     "node": ">=12.8"
   },
@@ -12,7 +12,9 @@
     "test:coverage": "c8 --all --include=src npm test",
     "watch": "jest --watch"
   },
-  "files": [],
+  "files": [
+    "src/"
+  ],
   "keywords": [
     "utilities",
     "datetime",
