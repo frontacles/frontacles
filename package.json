@@ -1,4 +1,9 @@
 {
+  "name": "frontacles",
+  "version": "0.1.0",
+  "description": "Front-end utilities for artisans",
+  "type": "module",
+  "exports": "./src/index.js",
   "engines": {
     "node": ">=12.8"
   },
@@ -6,6 +11,22 @@
     "test": "jest",
     "test:coverage": "c8 --all --include=src npm test",
     "watch": "jest --watch"
+  },
+  "files": [],
+  "keywords": [
+    "utilities",
+    "datetime",
+    "attribute"
+  ],
+  "homepage": "https://github.com/frontacles/frontacles",
+  "author": "Mehdi Merah",
+  "license": "WTFPL",
+  "repository": "https://github.com/frontacles/frontacles.git",
+  "bugs": {
+    "url": "https://github.com/frontacles/frontacles/issues"
+  },
+  "publishConfig": {
+    "access": "public"
   },
   "devDependencies": {
     "@babel/core": "^7.13.8",
