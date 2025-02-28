@@ -43,3 +43,13 @@ Trying to instantiate an Email with an invalid address will throw. This behaviou
 ```js
 new Email('double@at@sign.com') // ❌ throw TypeError
 ```
+
+Another behaviour from the `URL` class: you can pass an `Email` object to the `Email` constructor or to `Email.canParse`.
+
+```js
+const email = new Email('someone@domain.tld')
+
+const alsoEmail = new Email(email) // ✅ a new Email object!
+
+Email.canParse(email) // ✅ true
+```

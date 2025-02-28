@@ -3,7 +3,7 @@ export class Email extends URL {
 
   /**
    *
-   * @param {string} address An email address like `someone@domain.tld`.
+   * @param {string|Email} address An email address like `someone@domain.tld`.
    */
   constructor(address) {
     super(`ftp://${address}`)
@@ -55,6 +55,11 @@ export class Email extends URL {
     return `${this.username}@${this.host}` == address && !this.port
   }
 
+  /**
+   * Whether or not an email address is parsable and valid.
+   *
+   * @param {any|Email} address
+   */
   static canParse(address) {
     try {
       new this(address)
