@@ -41,7 +41,10 @@
   "homepage": "https://github.com/frontacles/frontacles",
   "author": "Mehdi Merah",
   "license": "WTFPL",
-  "repository": "https://github.com/frontacles/frontacles.git",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/frontacles/frontacles.git"
+  },
   "bugs": {
     "url": "https://github.com/frontacles/frontacles/issues"
   },
