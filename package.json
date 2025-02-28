@@ -1,6 +1,6 @@
 {
   "name": "frontacles",
-  "version": "0.1.1",
+  "version": "0.2.0",
   "description": "Front-end utilities for artisans",
   "type": "module",
   "sideEffects": false,
@@ -49,8 +49,7 @@
     "url": "https://github.com/frontacles/frontacles/issues"
   },
   "publishConfig": {
-    "access": "public",
-    "cache": "~/.npm"
+    "access": "public"
   },
   "devDependencies": {
     "@eslint/js": "^9.9.0",
