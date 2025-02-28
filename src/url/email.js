@@ -44,8 +44,15 @@ export class Email extends URL {
     return `${this.username}@${this.host}`
   }
 
+  /**
+   * Recompose the email address and compare it to the input. We also make sure
+   * there is no port since `someone@domain.tld:3000` is valid for the `URL`
+   * constructor but adds `:{port}` to `this.host` (`domain.tld:3000`).
+   *
+   * @param {string} address
+   */
   #validate (address) {
-    return `${this.username}@${this.host}` == address
+    return `${this.username}@${this.host}` == address && !this.port
   }
 
   static canParse(address) {
