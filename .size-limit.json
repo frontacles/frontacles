@@ -1,0 +1,16 @@
+[
+  {
+    "name": "`Email`",
+    "path": "src/index.js",
+    "import": "{ Email }"
+  },
+  {
+    "name": "`round`",
+    "path": "src/index.js",
+    "import": "{ round }"
+  },
+  {
+    "name": "**All modules** (`import *`)",
+    "path": "src/index.js"
+  }
+]
