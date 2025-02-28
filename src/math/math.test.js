@@ -1,7 +1,7 @@
 import { describe, expect, test } from 'vitest'
 import { round } from '..'
 
-describe.only('math/round', () => {
+describe('math/round', () => {
   test('round() is a function', () => expect(round).toBeInstanceOf(Function))
 
   test('round(-1.2)', () => expect(round(-1.2)).toBe(-1))
