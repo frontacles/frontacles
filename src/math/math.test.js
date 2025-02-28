@@ -1,4 +1,5 @@
-import { round } from '../src';
+import { describe, expect, test } from 'vitest'
+import { round } from '..'
 
 describe.only('math/round', () => {
   test('round() is a function', () => expect(round).toBeInstanceOf(Function))
