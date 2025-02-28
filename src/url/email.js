@@ -7,8 +7,8 @@ export class Email extends URL {
   constructor(address) {
     super(`ftp://${address}`)
 
-    if (! this.#validate(address)) {
-      throw new TypeError (`Email constructor: ${address} is not a valid Email.`)
+    if (!this.#validate(address)) {
+      throw new TypeError(`Email constructor: ${address} is not a valid Email.`)
     }
   }
 

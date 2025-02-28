@@ -21,7 +21,6 @@ describe.only('url/email', () => {
   //   expect(myEmail.host = 'other-domain.tld').toThrow()
   // })
 
-
   // const myEmail = new Email('mehdi@domain.tld')
   // console.log(Email.canParse('mehdi@domain.tld'))
   // // console.log(Email.canParse('mehdi@domain.tld?no'))
