@@ -2,6 +2,9 @@
 
 Cool utilities for front-end development (and potentially for Node).
 
+> [!WARNING]  
+> Under heavy development. We are only starting!
+
 ## Email
 
 A class to instantiate an `Email` object or validate emails.
