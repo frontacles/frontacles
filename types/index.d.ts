@@ -1,11 +1,16 @@
 export function round(number: number, precision?: number): number;
 export class Email extends URL {
-	static canParse(address: any): boolean;
+	/**
+	 * Whether or not an email address is parsable and valid.
+	 *
+	 * @param {any|Email} address
+	 */
+	static canParse(address: any | Email): boolean;
 	/**
 	 *
-	 * @param {string} address An email address like `someone@domain.tld`.
+	 * @param {string|Email} address An email address like `someone@domain.tld`.
 	 */
-	constructor(address: string);
+	constructor(address: string | Email);
 	/**
 	 * The domain name and extension of the email.
 	 *

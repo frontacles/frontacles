@@ -7,6 +7,7 @@ const myEmail = new Email('someone@domain.tld')
 expectType<Email>(myEmail)
 expectType<string>(myEmail.username)
 expectType<string>(myEmail.host)
+expectType<Email>(new Email(myEmail))
 
 // Wrong instantiation
 
@@ -15,6 +16,7 @@ expectError(() => new Email(123))
 // Check parsing
 
 expectType<boolean>(Email.canParse('someone@domain.tld'))
+expectType<boolean>(Email.canParse(myEmail))
 
 // Stringification
 

@@ -30,6 +30,8 @@ describe('url/email', () => {
   // https://github.com/colinhacks/zod/issues/3913
   test('can parse o&leary@example.com', () => expect(Email.canParse('o&leary@example.com')).toBeTruthy())
 
+  test('can parse an Email object', () => expect(Email.canParse(myEmail)).toBeTruthy())
+
   test('can’t parse a Date', () => expect(Email.canParse(new Date())).toBeFalsy())
   test('can’t parse a URL string with a port', () => expect(Email.canParse('someone@domain.tld:3000')).toBeFalsy())
   test('can’t parse a URL string with no username and with a port', () => expect(Email.canParse('domain.tld')).toBeFalsy())
