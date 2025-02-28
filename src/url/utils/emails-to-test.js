@@ -1,3 +1,4 @@
+// https://github.com/colinhacks/zod/blob/e2b9a5f9ac67d13ada61cd8e4b1385eb850c7592/src/types.ts#L648-L663
 // https://github.com/colinhacks/zod/blob/e2b9a5f9ac67d13ada61cd8e4b1385eb850c7592/deno/lib/__tests__/string.test.ts#L42-L154
 
 export const validEmailsFromZod = [
