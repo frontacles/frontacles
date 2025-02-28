@@ -23,8 +23,8 @@
     "watch": "vitest watch",
     "build": "echo \"Nothing to build, this command is only here to please size-limit GitHub action\" && exit 0",
     "size": "size-limit",
-    "lint": "npm exec eslint",
-    "lint-fix": "npm exec eslint --fix"
+    "lint": "eslint",
+    "lint-fix": "eslint --fix"
   },
   "files": [
     "CHANGELOG.md",
