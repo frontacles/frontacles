@@ -18,8 +18,8 @@ export class Email extends URL {
    *
    * In `username@domain.tld`, it is `domain.tld`.
    */
-  get host() {
-    return super.host
+  get hostname() {
+    return super.hostname
   }
 
   /**
@@ -32,7 +32,7 @@ export class Email extends URL {
   }
 
   toJSON () {
-    return `${this.username}@${this.host}`
+    return `${this.username}@${this.hostname}`
   }
 
   /**
@@ -41,18 +41,16 @@ export class Email extends URL {
    * situation where type casting to string is involved (`console.log`…).
    */
   toString () {
-    return `${this.username}@${this.host}`
+    return `${this.username}@${this.hostname}`
   }
 
   /**
-   * Recompose the email address and compare it to the input. We also make sure
-   * there is no port since `someone@domain.tld:3000` is valid for the `URL`
-   * constructor but adds `:{port}` to `this.host` (`domain.tld:3000`).
+   * Recompose the email address and compare it to the input.
    *
    * @param {string} address
    */
   #validate (address) {
-    return `${this.username}@${this.host}` == address && !this.port
+    return `${this.username}@${this.hostname}` == address
   }
 
   /**

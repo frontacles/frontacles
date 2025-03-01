@@ -10,7 +10,7 @@ describe('url/email', () => {
   // test members
 
   test('email username', () => expect(myEmail.username).toBe('someone'))
-  test('email host', () => expect(myEmail.host).toBe('domain.tld'))
+  test('email hostname', () => expect(myEmail.hostname).toBe('domain.tld'))
 
   // casting to a string
 
@@ -41,6 +41,6 @@ describe('url/email', () => {
 
   test('username and domain are non-writable', () => {
     expect(() => myEmail.username = 'someone-else').toThrow(TypeError)
-    expect(() => myEmail.host = 'other-domain.tld').toThrow(TypeError)
+    expect(() => myEmail.hostname = 'other-domain.tld').toThrow(TypeError)
   })
 })

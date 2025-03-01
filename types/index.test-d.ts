@@ -6,7 +6,7 @@ import { Email } from '.'
 const myEmail = new Email('someone@domain.tld')
 expectType<Email>(myEmail)
 expectType<string>(myEmail.username)
-expectType<string>(myEmail.host)
+expectType<string>(myEmail.hostname)
 expectType<Email>(new Email(myEmail))
 
 // Wrong instantiation
