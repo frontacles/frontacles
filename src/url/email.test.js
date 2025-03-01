@@ -12,6 +12,12 @@ describe('url/email', () => {
   test('email username', () => expect(myEmail.username).toBe('someone'))
   test('email hostname', () => expect(myEmail.hostname).toBe('domain.tld'))
 
+  test('destructure { username, hostname}', () => {
+    const { username, hostname } = new Email('someone@domain.tld')
+    expect(username).toBe('someone')
+    expect(hostname).toBe('domain.tld')
+  })
+
   // casting to a string
 
   test('string using type casting', () => expect(`${myEmail}`).toBe('someone@domain.tld'))
@@ -37,10 +43,15 @@ describe('url/email', () => {
   test('can’t parse a URL string with no username and with a port', () => expect(Email.canParse('domain.tld')).toBeFalsy())
   test('can’t parse a URL string with password', () => expect(Email.canParse('someone:password@domain.tld')).toBeFalsy())
 
-  // immutability
+  // mutability
 
-  test('username and domain are non-writable', () => {
-    expect(() => myEmail.username = 'someone-else').toThrow(TypeError)
-    expect(() => myEmail.hostname = 'other-domain.tld').toThrow(TypeError)
+  test('username and domain are mutable', () => {
+    const otherEmail = new Email(myEmail)
+
+    otherEmail.username = 'someone-else'
+    expect(otherEmail.toString()).toBe('someone-else@domain.tld')
+
+    otherEmail.hostname = 'other-domain.tld'
+    expect(otherEmail.toString()).toBe('someone-else@other-domain.tld')
   })
 })

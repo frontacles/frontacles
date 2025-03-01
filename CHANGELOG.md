@@ -8,15 +8,23 @@ Nothing for now.
 
 <!-- ⚠️ Before a new release, make sure the documentation doesn't contain any **unreleased** mention.  -->
 
-Compare with [last published version](https://github.com/frontacles/frontacles/compare/0.2.0...main).
+Compare with [last published version](https://github.com/frontacles/frontacles/compare/0.2.1...main).
+
+### Breaking
+
+- Make `Email.username` and `Email.hostname` mutable to follow `URL.username` and `URL.hostname` behavior.
+
+### Improved
+
+- Override documentation inherited from `URL` for `Email.username` and `Email.hostname`.
 
 ## v0.2.1 (2025-02-28)
 
 Compare with [previous version](https://github.com/frontacles/frontacles/compare/0.2.0...0.2.1).
 
-## Breaking
+### Breaking
 
-- rename `Email.host` into `Email.hostname` to better match `URL`
+- Rename `Email.host` into `Email.hostname` to better match `URL`.
 
 ### Improved
 

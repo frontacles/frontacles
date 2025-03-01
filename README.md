@@ -17,18 +17,23 @@ import { Email } from 'frontacles/url/email'
 const email = new Email('someone@domain.tld')
 ```
 
-Get the username and the hostname separately.
+Get or set the username and the hostname separately.
 
 ```js
 email.username // 'someone'
 email.hostname // 'domain.tld'
+
+email.hostname = 'newdomain.tld' // ✅ domain migrated
+
+// destructuring also works
+const { username, hostname } = new Email('someone@domain.tld')
 ```
 
 Turn the email object into a string by using it along another string, or use `toString`.
 
 ```js
-console.log(`email: ${email}`) // 'email: someone@domain.tld'
-console.log(email.toString()) // 'someone@domain.tld'
+console.log(`email: ${email}`) // 'email: someone@newdomain.tld'
+console.log(email.toString()) // 'someone@newdomain.tld'
 ```
 
 Validate that a string is a valid email address. It passes the complete Zod test suites, and beyond.

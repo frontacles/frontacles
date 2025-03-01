@@ -16,6 +16,7 @@
   },
   "scripts": {
     "types": "tsc && dts-bundle-generator --silent --no-banner=true -o types/index.d.ts types-transitive/index.d.ts",
+    "posttypes": "node scripts/inject-jsdoc.mjs",
     "test": "vitest run",
     "test:types": "npm exec tsd",
     "test:ui": "vitest --ui --coverage.enabled --coverage.exclude=types",
