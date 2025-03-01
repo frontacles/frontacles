@@ -1,5 +1,5 @@
 /**
- * Round a number to the (optionnally) provided precision.
+ * Round a number to the (optionally) provided precision.
  *
  * Examples:
  * - round(687.3456, 2)   // 687.35

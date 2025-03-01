@@ -5,7 +5,7 @@ Cool utilities for front-end development (and potentially for Node).
 > [!WARNING]  
 > Under heavy development. We are only starting!
 
-## Email
+## `Email`
 
 A class to instantiate an `Email` object or validate emails. It’s only [204 B compressed](https://bundlejs.com/?q=frontacles&treeshake=[{Email}]&config={%22compression%22%3A%22brotli%22}&bundle).
 
@@ -57,6 +57,25 @@ const email = new Email('someone@domain.tld')
 const alsoEmail = new Email(email) // ✅ a new Email object!
 
 Email.canParse(email) // ✅ true
+```
+
+## `round`
+
+Round a number to the (optionally) provided precision. It’s only [64 B compressed](https://bundlejs.com/?q=frontacles&treeshake=[{round}]&config={%22compression%22%3A%22brotli%22}&bundle).
+
+```js
+import { round } from 'frontacles/math'
+
+round(687.3456)      // 687
+round(687.3456, 0)   // 687
+round(687.3456, 2)   // 687.35
+```
+
+A negative precision will round up to multiple of tens:
+
+```js
+round(687.3456, -1)  // 690
+round(687.3456, -2)  // 700
 ```
 
 ## Changelog
