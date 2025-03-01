@@ -10,9 +10,17 @@ Nothing for now.
 
 Compare with [last published version](https://github.com/frontacles/frontacles/compare/0.2.0...main).
 
-## v1.4.0 (2025-02-28)
+## v0.2.1 (2025-02-28)
 
-Compare with [previous version](https://github.com/frontacles/frontacles/compare/dda10c3...0.2).
+Compare with [previous version](https://github.com/frontacles/frontacles/compare/0.2.0...0.2.1).
+
+### Improved
+
+- `Email` is now a couple of bytes lighter.
+
+## v0.2.0 (2025-02-28)
+
+Compare with [previous version](https://github.com/frontacles/frontacles/compare/dda10c3...0.2.0).
 
 ### New
 
