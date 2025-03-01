@@ -12,4 +12,7 @@ describe('math/round', () => {
 
   test('round(π, 5)', () => expect(round(Math.PI, 5)).toBe(3.14159))
   test('round(π, 4)', () => expect(round(Math.PI, 4)).toBe(3.1416))
+
+  test('round(687.3456, -1)', () => expect(round(687.3456, -1)).toBe(690))
+  test('round(687.3456, -2)', () => expect(round(687.3456, -2)).toBe(700))
 })
