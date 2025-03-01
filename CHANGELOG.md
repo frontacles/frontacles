@@ -14,6 +14,10 @@ Compare with [last published version](https://github.com/frontacles/frontacles/c
 
 Compare with [previous version](https://github.com/frontacles/frontacles/compare/0.2.0...0.2.1).
 
+## Breaking
+
+- rename `Email.host` into `Email.hostname` to better match `URL`
+
 ### Improved
 
 - `Email` is now a couple of bytes lighter.
