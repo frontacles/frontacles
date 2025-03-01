@@ -17,6 +17,7 @@ expectError(() => new Email(123))
 
 expectType<boolean>(Email.canParse('someone@domain.tld'))
 expectType<boolean>(Email.canParse(myEmail))
+expectType<boolean>(Email.canParse(new Date()))
 
 // Stringification
 
