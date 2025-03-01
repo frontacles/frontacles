@@ -12,6 +12,12 @@ describe('url/email', () => {
   test('email username', () => expect(myEmail.username).toBe('someone'))
   test('email hostname', () => expect(myEmail.hostname).toBe('domain.tld'))
 
+  test('destructure { username, hostname}', () => {
+    const { username, hostname } = new Email('someone@domain.tld')
+    expect(username).toBe('someone')
+    expect(hostname).toBe('domain.tld')
+  })
+
   // casting to a string
 
   test('string using type casting', () => expect(`${myEmail}`).toBe('someone@domain.tld'))
