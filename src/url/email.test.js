@@ -1,6 +1,7 @@
 import { describe, expect, test } from 'vitest'
 import { Email } from '..'
 import { invalidEmailsFromZod, validEmailsFromZod } from './test-utils/zod-suite'
+import { validateEmail } from './test-utils/dom-powered-email-validation'
 
 describe('url/email', () => {
   const myEmail = new Email('someone@domain.tld')
@@ -42,6 +43,14 @@ describe('url/email', () => {
   test('can’t parse a URL string with a port', () => expect(Email.canParse('someone@domain.tld:3000')).toBeFalsy())
   test('can’t parse a URL string with no username and with a port', () => expect(Email.canParse('domain.tld')).toBeFalsy())
   test('can’t parse a URL string with password', () => expect(Email.canParse('someone:password@domain.tld')).toBeFalsy())
+
+  // edge cases
+
+  test('can’t parse without username', () => {
+    // // @todo should run in browser: https://vitest.dev/guide/browser/config.html
+    // expect(validateEmail('@domain.tld')).toBeFalsy()
+    expect(Email.canParse('@domain.tld')).toBeFalsy()
+  })
 
   // mutability
 
