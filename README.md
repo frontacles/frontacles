@@ -7,7 +7,7 @@ Cool utilities for front-end development (and potentially for Node).
 
 ## Email
 
-A class to instantiate an `Email` object or validate emails. It’s only [221 B compressed](https://bundlejs.com/?q=frontacles&treeshake=[{Email}]&config={%22compression%22%3A%22brotli%22}&bundle).
+A class to instantiate an `Email` object or validate emails. It’s only [204 B compressed](https://bundlejs.com/?q=frontacles&treeshake=[{Email}]&config={%22compression%22%3A%22brotli%22}&bundle).
 
 Unlike most libraries using [RegEx for emails](https://github.com/colinhacks/zod/blob/e2b9a5f9ac67d13ada61cd8e4b1385eb850c7592/src/types.ts#L648-L663) (and prone to [bugs](https://github.com/colinhacks/zod/issues/3913)), Frontacles `Email` class relies on the same mechanism as your browser to validate email addresses, making it robust, and very likely RFC compliant.
 
