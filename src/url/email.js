@@ -32,7 +32,7 @@ export class Email extends URL {
   }
 
   toJSON () {
-    return `${this.username}@${this.hostname}`
+    return this.toString()
   }
 
   /**
@@ -50,7 +50,7 @@ export class Email extends URL {
    * @param {string} address
    */
   #validate (address) {
-    return `${this.username}@${this.hostname}` == address
+    return this.toString() == address
   }
 
   /**
