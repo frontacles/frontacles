@@ -31,7 +31,8 @@ export class Email extends URL {
    * @param {string} address
    */
   #validate (address) {
-    return this.toString() == address
+    // `username` is tested because `@domain.tld` is valid in a `ftp` context
+    return this.toString() == address && this.username
   }
 
   /**
