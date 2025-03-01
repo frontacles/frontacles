@@ -8,7 +8,11 @@ Nothing for now.
 
 <!-- ⚠️ Before a new release, make sure the documentation doesn't contain any **unreleased** mention.  -->
 
-Compare with [last published version](https://github.com/frontacles/frontacles/compare/0.2.1...main).
+Compare with [last published version](https://github.com/frontacles/frontacles/compare/0.2.2...main).
+
+## v0.2.2 (2025-03-01)
+
+Compare with [last published version](https://github.com/frontacles/frontacles/compare/0.2.1...0.2.2).
 
 ### Breaking
 
