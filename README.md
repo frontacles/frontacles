@@ -17,11 +17,11 @@ import { Email } from 'frontacles/url/email'
 const email = new Email('someone@domain.tld')
 ```
 
-Get the username and the host separately.
+Get the username and the hostname separately.
 
 ```js
 email.username // 'someone'
-email.host // 'domain.tld'
+email.hostname // 'domain.tld'
 ```
 
 Turn the email object into a string by using it along another string, or use `toString`.

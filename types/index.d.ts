@@ -16,7 +16,7 @@ export class Email extends URL {
 	 *
 	 * In `username@domain.tld`, it is `domain.tld`.
 	 */
-	get host(): string;
+	get hostname(): string;
 	/**
 	 * The username of the email.
 	 *
