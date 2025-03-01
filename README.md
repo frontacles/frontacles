@@ -29,7 +29,7 @@ email.hostname = 'newdomain.tld' // ✅ domain migrated
 const { username, hostname } = new Email('someone@domain.tld')
 ```
 
-An `Email` object is converted to a string when used along another string, or when directly using `toString`.
+An `Email` object is converted to a string when used along another string, or by directly calling `toString`.
 
 ```js
 console.log(`email: ${email}`) // 'email: someone@newdomain.tld'
