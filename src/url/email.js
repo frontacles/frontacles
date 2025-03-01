@@ -2,7 +2,6 @@
 export class Email extends URL {
 
   /**
-   *
    * @param {string|Email} address An email address like `someone@domain.tld`.
    */
   constructor(address) {
@@ -11,24 +10,6 @@ export class Email extends URL {
     if (!this.#validate(address)) {
       throw new TypeError(`Email constructor: ${address} is not a valid Email.`)
     }
-  }
-
-  /**
-   * The domain name and extension of the email.
-   *
-   * In `username@domain.tld`, it is `domain.tld`.
-   */
-  get hostname() {
-    return super.hostname
-  }
-
-  /**
-   * The username of the email.
-   *
-   * In `username@domain.tld`, it is `username`.
-   */
-  get username() {
-    return super.username
   }
 
   toJSON () {

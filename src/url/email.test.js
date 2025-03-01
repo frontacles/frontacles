@@ -37,10 +37,15 @@ describe('url/email', () => {
   test('can’t parse a URL string with no username and with a port', () => expect(Email.canParse('domain.tld')).toBeFalsy())
   test('can’t parse a URL string with password', () => expect(Email.canParse('someone:password@domain.tld')).toBeFalsy())
 
-  // immutability
+  // mutability
 
-  test('username and domain are non-writable', () => {
-    expect(() => myEmail.username = 'someone-else').toThrow(TypeError)
-    expect(() => myEmail.hostname = 'other-domain.tld').toThrow(TypeError)
+  test('username and domain are mutable', () => {
+    const otherEmail = new Email(myEmail)
+
+    otherEmail.username = 'someone-else'
+    expect(otherEmail.toString()).toBe('someone-else@domain.tld')
+
+    otherEmail.hostname = 'other-domain.tld'
+    expect(otherEmail.toString()).toBe('someone-else@other-domain.tld')
   })
 })
