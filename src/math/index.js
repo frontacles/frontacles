@@ -29,6 +29,16 @@ export const clamp = (val, min, max) => Math.max(min, Math.min(max, val))
  * @param {number} [precision=0] Rounding precision
  */
 export const round = (number, precision = 0) => {
+
+  /**
+   * In order to avoid a crash (`10 ** Infinity` gives `NaN`) when precision is
+   * `Infinity`, we replace it by the number of digits in the decimal part.
+   */
+  if (precision == Infinity) {
+    precision = Number.isInteger(number) ? 0 : `${number}`.split('.')[1].length
+  }
+
   precision = 10 ** precision
+
   return Math.round(number * precision) / precision
 }

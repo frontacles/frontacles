@@ -56,6 +56,13 @@ round(687.3456, -1)  // 690
 round(687.3456, -2)  // 700
 ```
 
+Trying to round `Infinity` or to round a number to an `infinite` precision is also possible:
+
+```js
+round(Infinity, -2) // Infinity
+round(17.853, Infinity // 17.853
+```
+
 ## URL utils
 
 ### `Email`

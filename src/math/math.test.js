@@ -15,6 +15,15 @@ describe('math/round', () => {
 
   test('round(687.3456, -1)', () => expect(round(687.3456, -1)).toBe(690))
   test('round(687.3456, -2)', () => expect(round(687.3456, -2)).toBe(700))
+
+  test('round(Infinity)', () => expect(round(Infinity)).toBe(Infinity))
+  test('round(Infinity, -2)', () => expect(round(Infinity, -2)).toBe(Infinity))
+
+  test('round(17, Infinity)', () => expect(round(17, Infinity)).toBe(17))
+  test('round(17.853, Infinity)', () => expect(round(17.853, Infinity)).toBe(17.853))
+
+  test('round(-0)', () => expect(round(-0)).toBe(-0))
+  test('round(-0, -2)', () => expect(round(-0, -2)).toBe(-0))
 })
 
 describe('math/clamp', () => {
