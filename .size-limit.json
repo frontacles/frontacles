@@ -4,6 +4,11 @@
     "path": "src/index.js",
     "import": "{ Email }"
   },
+{
+    "name": "`round`",
+    "path": "src/index.js",
+    "import": "{ clamp }"
+  },
   {
     "name": "`round`",
     "path": "src/index.js",
