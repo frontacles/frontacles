@@ -1,5 +1,5 @@
 import { describe, expect, test } from 'vitest'
-import { round } from '..'
+import { clamp, round } from '..'
 
 describe('math/round', () => {
   test('round() is a function', () => expect(round).toBeInstanceOf(Function))
@@ -15,4 +15,31 @@ describe('math/round', () => {
 
   test('round(687.3456, -1)', () => expect(round(687.3456, -1)).toBe(690))
   test('round(687.3456, -2)', () => expect(round(687.3456, -2)).toBe(700))
+
+  test('round(Infinity)', () => expect(round(Infinity)).toBe(Infinity))
+  test('round(Infinity, -2)', () => expect(round(Infinity, -2)).toBe(Infinity))
+
+  test('round(17, Infinity)', () => expect(round(17, Infinity)).toBe(17))
+  test('round(17.853, Infinity)', () => expect(round(17.853, Infinity)).toBe(17.853))
+
+  test('round(-0)', () => expect(round(-0)).toBe(-0))
+  test('round(-0, -2)', () => expect(round(-0, -2)).toBe(-0))
+})
+
+describe('math/clamp', () => {
+  test('clamp() is a function', () => expect(clamp).toBeInstanceOf(Function))
+
+  test('clamp(17, 3, 8)', () => expect(clamp(17, 3, 8)).toBe(8))
+  test('clamp(-3, 3, 8)', () => expect(clamp(-3, 3, 8)).toBe(3))
+  test('clamp(5, 3, 8)', () => expect(clamp(5, 3, 8)).toBe(5))
+
+  test('clamp(-2, -0, 10)', () => expect(clamp(-2, -0, 10)).toBe(-0))
+  test('clamp(-0, -0, 10)', () => expect(clamp(-0, -0, 10)).toBe(-0))
+  test('clamp(0, -0, 10)', () => expect(clamp(0, -0, 10)).toBe(0))
+
+  test('clamp(5, 0, Infinity)', () => expect(clamp(5, 0, Infinity)).toBe(5))
+  test('clamp(-5, -Infinity, 10)', () => expect(clamp(-5, -Infinity, 10)).toBe(-5))
+  test('clamp(Infinity, 0, 10)', () => expect(clamp(Infinity, 0, 10)).toBe(10))
+
+  test('clamp(10, 5, 0) (min is bigger than max)', () => expect(clamp(10, 5, 0)).toBe(5))
 })

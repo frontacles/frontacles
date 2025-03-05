@@ -4,11 +4,20 @@ This project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.htm
 
 ## Unreleased
 
-Nothing for now.
+<!-- Nothing for now. -->
 
 <!-- ⚠️ Before a new release, make sure the documentation doesn't contain any **unreleased** mention.  -->
 
 Compare with [last published version](https://github.com/frontacles/frontacles/compare/0.2.2...main).
+
+### New
+
+- Add [`clamp`](https://github.com/frontacles/frontacles#clamp), a function to clamp a number in a given range.
+- Add support for `Infinity` precision to the [`round` function](https://github.com/frontacles/frontacles#round).
+
+### Various
+
+Add _Math_ and _URL_ categories to the documentation.
 
 ## v0.2.2 (2025-03-01)
 
