@@ -1,5 +1,5 @@
 import { describe, expect, test } from 'vitest'
-import { round } from '..'
+import { clamp, round } from '..'
 
 describe('math/round', () => {
   test('round() is a function', () => expect(round).toBeInstanceOf(Function))
@@ -15,4 +15,12 @@ describe('math/round', () => {
 
   test('round(687.3456, -1)', () => expect(round(687.3456, -1)).toBe(690))
   test('round(687.3456, -2)', () => expect(round(687.3456, -2)).toBe(700))
+})
+
+describe('math/clamp', () => {
+  test('clamp() is a function', () => expect(clamp).toBeInstanceOf(Function))
+
+  test('clamp(17, 3, 8)', () => expect(clamp(17, 3, 8)).toBe(8))
+  test('clamp(-3, 3, 8)', () => expect(clamp(-3, 3, 8)).toBe(3))
+  test('clamp(5, 3, 8)', () => expect(clamp(5, 3, 8)).toBe(5))
 })

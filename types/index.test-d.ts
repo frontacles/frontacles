@@ -1,5 +1,9 @@
 import { expectError, expectType } from 'tsd'
-import { Email } from '.'
+import { clamp, Email, round } from '.'
+
+/**
+ * Test url/email
+ */
 
 // Correct instantiations
 
@@ -23,3 +27,11 @@ expectType<boolean>(Email.canParse(new Date()))
 
 expectType<string>(myEmail.toString())
 expectType<string>(`${myEmail}`)
+
+
+/**
+ * Test math
+ */
+
+expectType<number>(clamp(0, 1, 2))
+expectType<number>(round(Math.PI, 3))
