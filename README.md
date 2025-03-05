@@ -5,7 +5,60 @@ Cool utilities for front-end development (and potentially for Node).
 > [!WARNING]  
 > Under heavy development. We are only starting!
 
-## `Email`
+## Math utils
+
+### `clamp`
+
+Clamp a number between two values. A clamped number stays within a specified range. If the number is lower than the minimum, the minimum value is returned. If the number is higher than the maximum, the maximum value is returned.
+
+`clamp` needs 3 parameters:
+
+1. `number`: the number to clamp
+2. `min`: the smallest value your number can have
+3. `max`: the highest value your number can have
+
+```js
+import { clamp } from 'frontacles/math'
+
+clamp(17, 3, 8) // 8
+clamp(-3, 3, 8) // 3
+clamp(5, 3, 8)  // 5
+```
+
+`-0` and `Infinity` are accepted:
+
+```js
+clamp(-2, -0, 10)      // -0
+clamp(5, 0, Infinity)  // 5
+clamp(Infinity, 0, 10) // 10
+```
+
+> [!NOTE]  
+> `clamp` mostly follows [`Math.clamp` TC39 proposal](https://github.com/tc39/proposal-math-clamp), except it doesn’t throw if you flip the order of the _min_ (2nd parameter) and _max_ (3rd parameter) numbers.
+
+
+### `round`
+
+Round a number to the (optionally) provided precision. It’s only [64 B compressed](https://bundlejs.com/?q=frontacles&treeshake=[{round}]&config={%22compression%22%3A%22brotli%22}&bundle).
+
+```js
+import { round } from 'frontacles/math'
+
+round(687.3456)      // 687
+round(687.3456, 0)   // 687
+round(687.3456, 2)   // 687.35
+```
+
+A negative precision will round up to multiple of tens:
+
+```js
+round(687.3456, -1)  // 690
+round(687.3456, -2)  // 700
+```
+
+## URL utils
+
+### `Email`
 
 A class to instantiate an `Email` object or validate email addresses. It’s only [204 B compressed](https://bundlejs.com/?q=frontacles&treeshake=[{Email}]&config={%22compression%22%3A%22brotli%22}&bundle).
 
@@ -57,25 +110,6 @@ const email = new Email('someone@domain.tld')
 const alsoEmail = new Email(email) // ✅ a new Email object!
 
 Email.canParse(email) // ✅ true
-```
-
-## `round`
-
-Round a number to the (optionally) provided precision. It’s only [64 B compressed](https://bundlejs.com/?q=frontacles&treeshake=[{round}]&config={%22compression%22%3A%22brotli%22}&bundle).
-
-```js
-import { round } from 'frontacles/math'
-
-round(687.3456)      // 687
-round(687.3456, 0)   // 687
-round(687.3456, 2)   // 687.35
-```
-
-A negative precision will round up to multiple of tens:
-
-```js
-round(687.3456, -1)  // 690
-round(687.3456, -2)  // 700
 ```
 
 ## Changelog
