@@ -5,7 +5,7 @@
     "import": "{ Email }"
   },
 {
-    "name": "`round`",
+    "name": "`clamp`",
     "path": "src/index.js",
     "import": "{ clamp }"
   },
