@@ -15,7 +15,7 @@ Compare with [last published version](https://github.com/frontacles/frontacles/c
 - Add [`clamp`](https://github.com/frontacles/frontacles#clamp), a function to clamp a number in a given range.
 - Add support for `Infinity` precision to the [`round` function](https://github.com/frontacles/frontacles#round).
 
-## Various
+### Various
 
 Add _Math_ and _URL_ categories to the documentation.
 
