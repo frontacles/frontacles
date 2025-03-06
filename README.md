@@ -76,6 +76,15 @@ capitalize('0 books') // 0 books
 capitalize('صحراء') // 'صحراء' (Arabic)
 ```
 
+> [!TIP]
+> Before using `capitalize`, evaluate if [CSS](https://developer.mozilla.org/en-US/docs/Web/CSS/::first-letter) could be use instead.
+>
+> ```css
+> .my-class::first-letter {
+>   text-transform: uppercase;
+> }
+> ```
+
 ## URL utils
 
 ### `Email`
