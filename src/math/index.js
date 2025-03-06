@@ -30,12 +30,8 @@ export const clamp = (val, min, max) => Math.max(min, Math.min(max, val))
  */
 export const round = (number, precision = 0) => {
 
-  // Avoids a crash because `10 ** Infinity` gives `NaN`.
-  if (precision == Infinity) {
-    return number
-  }
-
-  precision = 10 ** precision
-
-  return Math.round(number * precision) / precision
+  // Testing precision avoids a crash because `10 ** Infinity` gives `NaN`.
+  return precision == Infinity
+    ? number
+    : Math.round(number * 10 ** precision) / 10 ** precision
 }
