@@ -5,6 +5,16 @@ Cool utilities for front-end development (and potentially for Node).
 > [!WARNING]  
 > Under heavy development. We are only starting!
 
+## Modules sizes (with brotli compression)
+
+| categories | util | size |
+| --- | --- | --- |
+| math | [`clamp`](#clamp) | 35 B |
+| math | [`round`](#round) | 44 B |
+| string | [`capitalize`](#capitalize) | 40 B |
+| url | [`Email`](#email) | 173 B |
+|  | **everything** | 245 B |
+
 ## Math utils
 
 ### `clamp`
@@ -39,7 +49,7 @@ clamp(Infinity, 0, 10) // 10
 
 ### `round`
 
-Round a number to the (optionally) provided precision. It’s only [64 B compressed](https://bundlejs.com/?q=frontacles&treeshake=[{round}]&config={%22compression%22%3A%22brotli%22}&bundle).
+Round a number to the (optionally) provided precision.
 
 ```js
 import { round } from 'frontacles/math'
@@ -89,7 +99,7 @@ capitalize('صحراء') // 'صحراء' (Arabic)
 
 ### `Email`
 
-A class to instantiate an `Email` object or validate email addresses. It’s only [204 B compressed](https://bundlejs.com/?q=frontacles&treeshake=[{Email}]&config={%22compression%22%3A%22brotli%22}&bundle).
+A class to instantiate an `Email` object or validate email addresses.
 
 Unlike most libraries using [RegEx to validate a string is an email](https://github.com/colinhacks/zod/blob/e2b9a5f9ac67d13ada61cd8e4b1385eb850c7592/src/types.ts#L648-L663) (which is prone to [bugs](https://github.com/colinhacks/zod/issues/3913)), Frontacles `Email` relies on the same mechanism as your browser, making it robust, and very likely RFC compliant.
 
