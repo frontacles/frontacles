@@ -46,6 +46,7 @@ describe('url/email', () => {
 
   // edge cases
 
+  // `.skip` does not crash the CI while `.fails` do (https://github.com/vitest-dev/vitest/discussions/1427)
   test.skip('to parse without username', () => {
     // // @todo should run in browser: https://vitest.dev/guide/browser/config.html
     // expect(validateEmail('@domain.tld')).toBeFalsy()
