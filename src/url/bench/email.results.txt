@@ -1,0 +1,31 @@
+ ✓ src/url/bench/email.bench.js > url/email passing all tests 3545ms
+     name                                                 hz     min     max    mean     p75     p99    p995    p999     rme  samples
+   · `Email.canParse()`                         2,135,548.89  0.0003  0.2960  0.0005  0.0005  0.0007  0.0008  0.0041  ±0.46%  1067775   fastest
+   · `validator/isEmail`                          680,657.65  0.0013  0.1592  0.0015  0.0015  0.0017  0.0018  0.0020  ±0.09%   340329
+   · `yup create schema and .isValidSync()`       588,225.86  0.0015  0.2121  0.0017  0.0016  0.0022  0.0024  0.0034  ±0.52%   294113   slowest
+   · `yup precalculated schema .isValidSync()`  2,117,986.51  0.0004  0.2053  0.0005  0.0005  0.0009  0.0010  0.0014  ±0.13%  1058994
+
+ ✓ src/url/bench/email.bench.js > url/email failing all tests 7611ms
+     name                                              hz     min     max    mean     p75     p99    p995    p999     rme  samples
+   · `Email.canParse() (repeated)`           2,281,644.13  0.0003  0.9900  0.0004  0.0005  0.0005  0.0006  0.0008  ±0.40%  1140823
+   · `joi create schema and .validate()`       246,776.37  0.0036  0.2647  0.0041  0.0040  0.0073  0.0076  0.0109  ±0.33%   123389   slowest
+   · `joi precalculated schema .validate()`    450,006.62  0.0018  0.1460  0.0022  0.0020  0.0054  0.0056  0.0062  ±0.31%   225004
+   · `valibot create schema and .is()`         415,480.67  0.0020  1.8904  0.0024  0.0022  0.0035  0.0040  0.0080  ±2.86%   207741
+   · `valibot precalculated schema .is()`    8,608,914.02  0.0000  0.2926  0.0001  0.0001  0.0001  0.0002  0.0003  ±0.47%  4304458   fastest
+   · `zod create schema and .parse()`        1,009,621.62  0.0008  0.3082  0.0010  0.0010  0.0013  0.0015  0.0020  ±0.62%   504811
+   · `zod precalculated schema .parse()`     5,711,569.90  0.0001  0.0152  0.0002  0.0002  0.0002  0.0002  0.0004  ±0.03%  2855785
+
+ BENCH  Summary
+
+  `Email.canParse()` - src/url/bench/email.bench.js > url/email passing all tests
+    1.01x faster than `yup precalculated schema .isValidSync()`
+    3.14x faster than `validator/isEmail`
+    3.63x faster than `yup create schema and .isValidSync()`
+
+  `valibot precalculated schema .is()` - src/url/bench/email.bench.js > url/email failing all tests
+    1.51x faster than `zod precalculated schema .parse()`
+    3.77x faster than `Email.canParse()`
+    8.53x faster than `zod create schema and .parse()`
+    19.13x faster than `joi precalculated schema .validate()`
+    20.72x faster than `valibot create schema and .is()`
+    34.89x faster than `joi create schema and .validate()`
