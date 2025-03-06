@@ -36,3 +36,5 @@ Tests are using Vitest, and a command for [its UI](https://vitest.dev/guide/ui.h
 Benchmarks are using Vitest and are used for decision/information purpose when using multiple implementations. Their results are pasted in `.txt` files along the `.bench.js` files. For now, no benefit is seen to run them in the CI or to keep the [JSON output](https://vitest.dev/config/#benchmark-outputJson) of the benchmarks since they might vary a lot across environments (is it true?).
 
 In benchmarks, imported members should not be used directly (see [`round.bench.js`](./src/math/bench/round.bench.js) as example) because [they create irregular results](https://github.com/vitest-dev/vitest/issues/6543).
+
+Run benchmark using `npm run bench`.
