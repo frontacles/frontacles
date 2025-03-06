@@ -1,6 +1,6 @@
 /** @file Alternatives implementations of `round()` for benchmark purpose. */
 
-/** Supports `Infinity` as precision */
+/** Supports `Infinity` as precision. */
 export const roundWithInfinity = (number, precision = 0) => {
   if (precision == Infinity) {
     return number
@@ -26,7 +26,7 @@ export const roundDoublePrecisionCompute = (number, precision = 0) => {
   return Math.round(number * 10 ** precision) / 10 ** precision
 }
 
-/** Shortest in bytes */
+/** Supports `Infinity` as precision. Shortest in bytes. */
 export const roundDoublePrecisionComputeShortest = (number, precision = 0) => {
 
   // Testing precision avoids a crash because `10 ** Infinity` gives `NaN`.
