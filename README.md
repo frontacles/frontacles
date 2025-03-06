@@ -5,7 +5,7 @@ Cool utilities for front-end development (and potentially for Node).
 > [!WARNING]  
 > Under heavy development. We are only starting!
 
-We love tiny bits (sizes below: brotli compression):
+We love tiny bits (using brotli compression):
 
 | categories | util | size |
 | --- | --- | --- |
