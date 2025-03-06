@@ -5,7 +5,7 @@ Cool utilities for front-end development (and potentially for Node).
 > [!WARNING]  
 > Under heavy development. We are only starting!
 
-## Modules sizes (with brotli compression)
+We love tiny bits (sizes below: brotli compression):
 
 | categories | util | size |
 | --- | --- | --- |
