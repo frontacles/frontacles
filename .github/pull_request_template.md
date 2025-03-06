@@ -9,4 +9,8 @@
   - [ ] [documentation](https://github.com/frontacles/frontacles/blob/main/README.md)
   - [ ] [changelog](https://github.com/frontacles/frontacles/blob/main/CHANGELOG.md)
   - [ ] [`size-limit` config](https://github.com/frontacles/frontacles/blob/main/.size-limit.json)
+  - [ ] [benchmarks](https://github.com/frontacles/frontacles/blob/main/CONTRIBUTING.md#benchmarks)
+
+If you are not familiar with everything, you can still submit a pull request.
+
 ---

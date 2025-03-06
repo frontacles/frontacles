@@ -10,10 +10,10 @@ We love tiny bits (using brotli compression):
 | categories | util | size |
 | --- | --- | --- |
 | math | [`clamp`](#clamp) | 35 B |
-| math | [`round`](#round) | 44 B |
+| math | [`round`](#round) | 38 B |
 | string | [`capitalize`](#capitalize) | 40 B |
 | url | [`Email`](#email) | 173 B |
-|  | **everything** | 245 B |
+|  | **everything** | 252 B |
 
 ## Math utils
 

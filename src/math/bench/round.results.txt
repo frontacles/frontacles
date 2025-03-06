@@ -1,0 +1,13 @@
+ ✓ src/math/bench/round.bench.js > math/round 18871ms
+     name                                hz     min     max    mean     p75     p99    p995    p999     rme   samples
+   · double compute           25,258,988.43  0.0000  0.0295  0.0000  0.0000  0.0000  0.0001  0.0002  ±0.05%  12629495
+   · double compute, 1 liner  25,141,891.65  0.0000  0.0586  0.0000  0.0000  0.0000  0.0001  0.0002  ±0.05%  12570946   slowest
+   · with Infinity (current)  25,298,281.54  0.0000  0.0384  0.0000  0.0000  0.0000  0.0001  0.0002  ±0.04%  12649141
+   · without Infinity         25,417,501.75  0.0000  1.1335  0.0000  0.0000  0.0000  0.0001  0.0002  ±0.45%  12708751   fastest
+
+ BENCH  Summary
+
+  without Infinity - src/math/bench/round.bench.js > math/round
+    1.00x faster than with Infinity (current)
+    1.01x faster than double compute
+    1.01x faster than double compute, 1 liner
