@@ -25,3 +25,12 @@ export const roundWithoutInfinity = (number, precision = 0) => {
 export const roundDoublePrecisionCompute = (number, precision = 0) => {
   return Math.round(number * 10 ** precision) / 10 ** precision
 }
+
+/** Shortest in bytes */
+export const roundDoublePrecisionComputeShortest = (number, precision = 0) => {
+
+  // Testing precision avoids a crash because `10 ** Infinity` gives `NaN`.
+  return precision == Infinity
+    ? number
+    : Math.round(number * 10 ** precision) / 10 ** precision
+}
