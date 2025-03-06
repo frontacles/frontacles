@@ -143,11 +143,11 @@ Email.canParse(email) // ✅ true
 
 ## Changelog
 
-See [CHANGELOG.md](https://github.com/frontacles/frontacles/blob/main/CHANGELOG.md) or the [releases](https://github.com/frontacles/frontacles/releases).
+See [CHANGELOG.md](./CHANGELOG.md) or the [releases](https://github.com/frontacles/frontacles/releases).
 
 ## Browser and tooling support
 
-`frontacles` is provided [as module](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Modules#browser_compatibility) for [modern browsers usage](https://github.com/frontacles/frontacles/blob/main/browserslist) with standard JavaScript syntax:
+`frontacles` is provided [as module](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Modules#browser_compatibility) for [modern browsers usage](./browserslist) with standard JavaScript syntax:
 - it is up to you to transpile it for legacy browsers;
 - you can’t import it using `require('frontacles')`.
 
@@ -155,12 +155,12 @@ See [CHANGELOG.md](https://github.com/frontacles/frontacles/blob/main/CHANGELOG.
 
 ## Security
 
-See the [security policy](https://github.com/frontacles/frontacles/blob/main/SECURITY.md).
+See the [security policy](./SECURITY.md).
 
 ## Contributing
 
-See the [contributing guidelines](https://github.com/frontacles/frontacles/blob/main/CONTRIBUTING.md).
+See the [contributing guidelines](./CONTRIBUTING.md).
 
 ## License
 
-The _datetime-attribute_ package is open-sourced software licensed under the [DWTFYWTPL](https://github.com/frontacles/frontacles/blob/main/LICENSE).
+The _datetime-attribute_ package is open-sourced software licensed under the [DWTFYWTPL](./LICENSE).

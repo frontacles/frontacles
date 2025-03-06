@@ -14,12 +14,12 @@ Compare with [last published version](https://github.com/frontacles/frontacles/c
 
 #### Math
 
-- Add [`clamp`](https://github.com/frontacles/frontacles#clamp), a function to clamp a number in a given range.
-- Add support for `Infinity` precision to the [`round` function](https://github.com/frontacles/frontacles#round).
+- Add [`clamp`](./README.md#clamp), a function to clamp a number in a given range.
+- Add support for `Infinity` precision to the [`round` function](./README.md#round).
 
 #### String
 
-- Add [`capitalize`](https://github.com/frontacles/frontacles#capitalize), a function to put the first letter of a word in uppercase.
+- Add [`capitalize`](./README.md#capitalize), a function to put the first letter of a word in uppercase.
 
 ### Fixed
 
@@ -59,7 +59,7 @@ Compare with [previous version](https://github.com/frontacles/frontacles/compare
 
 ### New
 
-- Add [`Email`](https://github.com/frontacles/frontacles#email), a class to validate emails the same way browsers do, which is rock solid.
+- Add [`Email`](./README.md#email), a class to validate emails the same way browsers do, which is rock solid.
 
 ## v0.1.1 (2021-03-13)
 
