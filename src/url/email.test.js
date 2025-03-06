@@ -1,6 +1,7 @@
 import { describe, expect, test } from 'vitest'
 import { Email } from '..'
 import { invalidEmailsFromZod, validEmailsFromZod } from './test-utils/zod-suite'
+import { invalidEmailsFromValibot, validEmailsFromValibot } from './test-utils/valibot-suite'
 // import { validateEmail } from './test-utils/dom-powered-email-validation'
 
 describe('url/email', () => {
@@ -32,6 +33,14 @@ describe('url/email', () => {
 
   test('passes the Zod test suits for invalid emails', () => expect(
     invalidEmailsFromZod.every(email => Email.canParse(email))
+  ).toBeFalsy())
+
+  test('passes the Valibot test suits for valid emails', () => expect(
+    validEmailsFromValibot.every(email => Email.canParse(email))
+  ).toBeTruthy())
+
+  test('passes the Valibot test suits for invalid emails', () => expect(
+    invalidEmailsFromValibot.every(email => Email.canParse(email))
   ).toBeFalsy())
 
   // https://github.com/colinhacks/zod/issues/3913
