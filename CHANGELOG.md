@@ -12,8 +12,14 @@ Compare with [last published version](https://github.com/frontacles/frontacles/c
 
 ### New
 
+#### Math
+
 - Add [`clamp`](https://github.com/frontacles/frontacles#clamp), a function to clamp a number in a given range.
 - Add support for `Infinity` precision to the [`round` function](https://github.com/frontacles/frontacles#round).
+
+#### String
+
+- Add [`capitalize`](https://github.com/frontacles/frontacles#capitalize), a function to put the first letter of a word in uppercase.
 
 ### Fixed
 

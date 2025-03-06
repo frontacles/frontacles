@@ -1,5 +1,6 @@
 export function clamp(val: number, min: number, max: number): number;
 export function round(number: number, precision?: number): number;
+export function capitalize(str: string): string;
 export class Email extends URL {
 	/**
 	 * The domain name and extension of the email.
