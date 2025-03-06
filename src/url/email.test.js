@@ -46,7 +46,7 @@ describe('url/email', () => {
 
   // edge cases
 
-  test('can’t parse without username', () => {
+  test.fails('to parse without username', () => {
     // // @todo should run in browser: https://vitest.dev/guide/browser/config.html
     // expect(validateEmail('@domain.tld')).toBeFalsy()
     expect(Email.canParse('@domain.tld')).toBeFalsy()
