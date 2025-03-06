@@ -37,4 +37,4 @@ Benchmarks are using Vitest and are used for decision/information purpose when h
 
 In benchmarks, imported members should not be used directly (see [`round.bench.js`](./src/math/bench/round.bench.js) as example) because it would [create irregular results](https://github.com/vitest-dev/vitest/issues/6543).
 
-Run benchmark using `npm run bench`.
+You can run benchmarks using `npm run bench`.

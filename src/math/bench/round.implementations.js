@@ -19,7 +19,7 @@ export const roundWithoutInfinity = (number, precision = 0) => {
 }
 
 /**
- * Does not reassign precision but duplicate Math.pow computation.
+ * Does not reassign precision but duplicate `Math.pow` (`10 ** precision`).
  * Does not supports `Infinity` as precision.
  */
 export const roundDoublePrecisionCompute = (number, precision = 0) => {
