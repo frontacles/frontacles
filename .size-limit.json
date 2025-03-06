@@ -4,7 +4,12 @@
     "path": "src/index.js",
     "import": "{ Email }"
   },
-{
+  {
+    "name": "`capitalize`",
+    "path": "src/index.js",
+    "import": "{ capitalize }"
+  },
+  {
     "name": "`clamp`",
     "path": "src/index.js",
     "import": "{ clamp }"

@@ -63,6 +63,28 @@ round(Infinity, -2) // Infinity
 round(17.853, Infinity // 17.853
 ```
 
+## String utils
+
+### `capitalize`
+
+Put the first letter of a word in uppercase. It works for Latin, Greek and Cyrillic alphabets.
+
+```js
+capitalize('jean-roger')) // 'Jean-roger' (Latin)
+capitalize('έρημος')) // 'Έρημος' (Greek)
+capitalize('0 books') // 0 books
+capitalize('صحراء') // 'صحراء' (Arabic)
+```
+
+> [!TIP]
+> Before using `capitalize`, evaluate if [CSS](https://developer.mozilla.org/en-US/docs/Web/CSS/::first-letter) could be used instead.
+>
+> ```css
+> .my-class::first-letter {
+>   text-transform: uppercase;
+> }
+> ```
+
 ## URL utils
 
 ### `Email`
