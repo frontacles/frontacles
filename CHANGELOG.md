@@ -4,11 +4,15 @@ This project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.htm
 
 ## Unreleased
 
-<!-- Nothing for now. -->
+Nothing for now.
 
 <!-- ⚠️ Before a new release, make sure the documentation doesn't contain any **unreleased** mention.  -->
 
-Compare with [last published version](https://github.com/frontacles/frontacles/compare/0.2.2...main).
+Compare with [last published version](https://github.com/frontacles/frontacles/compare/0.2.3...main).
+
+## v0.3.0 (2025-03-06)
+
+Compare with [last published version](https://github.com/frontacles/frontacles/compare/0.2.2...0.2.3).
 
 ### New
 
@@ -25,9 +29,17 @@ Compare with [last published version](https://github.com/frontacles/frontacles/c
 
 - `Email` was considering as valid an email without username (e.g. `@domain.tld`). This is now fixed.
 
-### Various
+### Under the hood
 
-Add categories (_Math_, _String_, _URL_)  to the documentation.
+- Shorten `round` by a couple of Bytes.
+- Benchmark [`round` implementations](./src/math/bench)
+- Add [Valibot test suite](./src/url/test-utils/valibot-suite.js) to `Email` (all tests are passing!).
+
+### Documentation
+
+- Gather sizes in the documentation introduction.
+- Group utils by categories (_Math_, _String_, _URL_)  to the documentation.
+- Add pull request template.
 
 ## v0.2.2 (2025-03-01)
 
