@@ -27,7 +27,7 @@ Compare with [last published version](https://github.com/frontacles/frontacles/c
 
 ### Various
 
-Add _Math_ and _URL_ categories to the documentation.
+Add categories (_Math_, _String_, _URL_)  to the documentation.
 
 ## v0.2.2 (2025-03-01)
 
