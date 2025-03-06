@@ -1,7 +1,7 @@
 import { describe, expect, test } from 'vitest'
 import { Email } from '..'
 import { invalidEmailsFromZod, validEmailsFromZod } from './test-utils/zod-suite'
-import { validateEmail } from './test-utils/dom-powered-email-validation'
+// import { validateEmail } from './test-utils/dom-powered-email-validation'
 
 describe('url/email', () => {
   const myEmail = new Email('someone@domain.tld')
