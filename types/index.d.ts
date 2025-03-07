@@ -26,5 +26,6 @@ export class Email extends URL {
 	constructor(address: string | Email);
 	#private;
 }
+export function isEmail(address: string | any): boolean;
 
 export {};
