@@ -1,7 +1,7 @@
 /** @file Alternatives implementations of email validation for benchmark purpose. */
 
 /** A function validating an email, using RegExp. */
-export const isEmailWithRegExp = address => /^[a-zA-Z0-9.!#$%&'*+\/=?^_`{|}~-]+@[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?(?:\.[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?)*$/.test(address)
+export const isEmailWithRegExp = address => /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?(?:\.[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?)*$/.test(address)
 
 /** Class extending `URL`. Validation using RegExp. */
 // eslint-disable-next-line no-undef
