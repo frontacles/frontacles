@@ -5,6 +5,11 @@
     "import": "{ Email }"
   },
   {
+    "name": "`isEmail`",
+    "path": "src/index.js",
+    "import": "{ isEmail }"
+  },
+  {
     "name": "`capitalize`",
     "path": "src/index.js",
     "import": "{ capitalize }"
