@@ -4,11 +4,16 @@ This project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.htm
 
 ## Unreleased
 
-Nothing for now.
+<!-- Nothing for now. -->
 
 <!-- ⚠️ Before a new release, make sure the documentation doesn't contain any **unreleased** mention.  -->
 
 Compare with [last published version](https://github.com/frontacles/frontacles/compare/0.2.3...main).
+
+### Under the hood
+
+- Centralize all benchmarks in [`./benchs`](./benchs)
+- Benchmark [`Email`](./benchs/url)
 
 ## v0.3.0 (2025-03-06)
 
