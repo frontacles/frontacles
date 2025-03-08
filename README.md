@@ -108,9 +108,18 @@ isEmail('invalid@email.com:3000') // false
 ```
 
 > [!TIP]  
+> Should I use `isEmail` or `Email.canParse` to validate emails?
+> Short answer: use `isEmail`.
+> 
 > <details>
-> <summary>Should I use `isEmail` or `Email.canParse`?</summary>
-> To complete.
+> <summary>Nuanced answer</summary>
+>
+> - If you **only need to validate** email addresses, use `isEmail`.
+> - If you also need to be able to retrieve or update the email username or its hostname **independently**, use `Email`. There’s _probably_ no point in using the `Email` class otherwise. Tell use if you find any other interesting use case.
+>
+> If you need `Email` and if your concern is:
+> - JS footprint: it’s best you rely on `Email.canParse` instead of importing `isEmail`, which will result in a smaller JS footprint;
+> - ultra-performance: (e.g. your Node API validates tons of emails per seconds): use `isEmail` because it’s 6✕ faster. That being said, `Email.canParse` is still fast enough for 99% use cases.
 > </details>
 
 ### `Email`
