@@ -1,6 +1,6 @@
 {
   "name": "frontacles",
-  "version": "0.3.0",
+  "version": "0.4.0",
   "description": "Front-end utilities for artisans",
   "type": "module",
   "sideEffects": false,
@@ -31,7 +31,6 @@
   "files": [
     "CHANGELOG.md",
     "src/**/*.js",
-    "!src/**/bench",
     "!src/**/test-utils",
     "!src/**/*.test.js",
     "types/index.d.ts"
