@@ -12,8 +12,8 @@ We love tiny bits (using brotli compression):
 | math | [`clamp`](#clamp) | 35 B |
 | math | [`round`](#round) | 38 B |
 | string | [`capitalize`](#capitalize) | 40 B |
-| url | [`Email`](#email) | 173 B |
 | url | [`isEmail`](#isemail) | 86 B |
+| url | [`Email`](#email) | 173 B |
 |  | **everything** | 328 B |
 
 ## Math utils
