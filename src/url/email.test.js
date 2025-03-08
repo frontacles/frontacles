@@ -5,7 +5,7 @@ import { invalidEmailsFromValibot, validEmailsFromValibot } from './test-utils/v
 // import { validateEmail } from './test-utils/dom-powered-email-validation'
 
 /**
- * The test suites for Email.parse and isEmail have the same expectations.
+ * @file Tests for `Email.parse` and `isEmail` have the same expectations.
  */
 
 describe('url/email', () => {

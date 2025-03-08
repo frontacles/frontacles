@@ -41,7 +41,7 @@ export class Email extends URL {
   /**
    * Whether or not an email address is parsable and valid.
    *
-   * @param {any|string|Email} address
+   * @param {any|string|Email|Stringable} address
    */
   static canParse(address) {
     try {
@@ -58,6 +58,11 @@ export class Email extends URL {
  *
  * It uses WHATWG recommended RegExp: https://html.spec.whatwg.org/multipage/input.html#valid-e-mail-address
  *
- * @param {any|string|Email} address
+ * @param {any|string|Stringable} address
  */
 export const isEmail = address => /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?(?:\.[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?)*$/.test(address)
+
+/**
+ * @typedef {Object} Stringable
+ * @property {function(): string} toString - The object as a string.
+ */
