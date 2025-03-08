@@ -122,7 +122,8 @@ isEmail('invalid@email.com:3000') // false
 > When using the `Email` class, you can still use `isEmail` if you want ultra-performance (e.g. your Node API validates tons of emails per seconds) because `isEmail` is 6✕ faster, at the cost of a bit less than 100 Bytes (compressed).
 >
 > The reason `isEmail` is faster is that it relies on a single RegExp while `Email.canParse` uses the browser built-in, which results in a bit more of computation, but with less code. For now, it’s not planned to use `isEmail` implementation in `Email.canParse` as it would increase its size by 50 Bytes.
-> Keep in mind that **`Email.canParse` is fast enough** for the 99% use cases.
+>
+> Keep in mind that **`Email.canParse` is fast enough** for the 99% use cases. Despite their implementation difference, both behave the same and pass the same tests.
 > </details>
 
 ### `Email`
@@ -178,7 +179,7 @@ console.log(email.toString()) // 'someone@newdomain.tld'
 
 Validate an email address with `Email.canParse`.
 
-Unlike most libraries using [RegExp to validate a string is an email](https://github.com/colinhacks/zod/blob/e2b9a5f9ac67d13ada61cd8e4b1385eb850c7592/src/types.ts#L648-L663) (which is prone to [bugs](https://github.com/colinhacks/zod/issues/3913)), Frontacles `Email` relies on built-in `URL` mechanisms as your browser, making it robust, and very likely RFC compliant. It passes [popular libraries test suites](./src/url/test-utils), and beyond.
+Unlike most libraries using [RegExp to validate a string is an email](https://github.com/colinhacks/zod/blob/e2b9a5f9ac67d13ada61cd8e4b1385eb850c7592/src/types.ts#L648-L663) (which is prone to [bugs](https://github.com/colinhacks/zod/issues/3913)), Frontacles `Email` relies on the built-in `URL` mechanisms, making it robust, and very likely RFC compliant. It passes [popular libraries test suites](./src/url/test-utils), and beyond.
 
 ```js
 Email.canParse('someone@domain.tld') // true
