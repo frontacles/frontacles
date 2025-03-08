@@ -148,7 +148,7 @@ describe('url/isEmail', () => {
   // https://github.com/colinhacks/zod/issues/3913
   test('o&leary@example.com is valid', () =>
     expect(isEmail('o&leary@example.com')).toBeTruthy()
-)
+  )
 
   test('to parse without username', () => {
     /** @todo Should run in browser (https://vitest.dev/guide/browser/config.html). */
