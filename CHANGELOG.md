@@ -10,10 +10,19 @@ This project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.htm
 
 Compare with [last published version](https://github.com/frontacles/frontacles/compare/0.2.3...main).
 
+### New
+
+- Add [`isEmail`](./README.md#isemail) to validate emails.
+
+### Documentation
+
+- It is now more explicit in types that `Email.canParse` expects a `string` or a `Stringable` (changed from `any|Email` to `any|string|Email|Stringable`).
+- Rephrase email documentation.
+
 ### Under the hood
 
-- Centralize all benchmarks in [`./benchs`](./benchs)
-- Benchmark [`Email`](./benchs/url)
+- Centralize all benchmarks in [`./benchs`](./benchs).
+- Benchmark [`Email`](./benchs/url).
 
 ## v0.3.0 (2025-03-06)
 

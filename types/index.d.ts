@@ -17,14 +17,21 @@ export class Email extends URL {
 	/**
 	 * Whether or not an email address is parsable and valid.
 	 *
-	 * @param {any|Email} address
+	 * @param {any|string|Email|Stringable} address
 	 */
-	static canParse(address: any | Email): boolean;
+	static canParse(address: any | string | Email | Stringable): boolean;
 	/**
 	 * @param {string|Email} address An email address like `someone@domain.tld`.
 	 */
 	constructor(address: string | Email);
 	#private;
 }
+export function isEmail(address: any | string | Stringable): boolean;
+export type Stringable = {
+	/**
+	 * - The object as a string.
+	 */
+	toString: () => string;
+};
 
 export {};
