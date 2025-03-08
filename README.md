@@ -47,10 +47,9 @@ clamp(Infinity, 0, 10) // 10
 > [!NOTE]  
 > `clamp` mostly follows [`Math.clamp` TC39 proposal](https://github.com/tc39/proposal-math-clamp), except it doesn’t throw if you flip the order of the _min_ (2nd parameter) and _max_ (3rd parameter) numbers.
 
-
 ### `round`
 
-Round a number to the (optionally) provided precision.
+Round a number to the (optionally) provided decimal precision. The default precision is 0 (no decimal).
 
 ```js
 import { round } from 'frontacles/math'
@@ -67,7 +66,7 @@ round(687.3456, -1)  // 690
 round(687.3456, -2)  // 700
 ```
 
-Trying to round `Infinity` or to round a number to an _infinite_ precision is also possible:
+Using `Infinity` is also possible:
 
 ```js
 round(Infinity, -2) // Infinity
@@ -114,19 +113,22 @@ isEmail('invalid@email.com:3000') // false
 > <details>
 > <summary>Nuanced answer</summary>
 >
-> - If you **only need to validate** email addresses, use `isEmail`.
-> - If you also need to be able to retrieve or update the email username or its hostname **independently**, use `Email`. There’s _probably_ no point in using the `Email` class otherwise. Tell use if you find any other interesting use case.
+> Your use case:
 >
-> If you need `Email` and if your concern is:
-> - JS footprint: it’s best you rely on `Email.canParse` instead of importing `isEmail`, which will result in a smaller JS footprint;
-> - ultra-performance: (e.g. your Node API validates tons of emails per seconds): use `isEmail` because it’s 6✕ faster. That being said, `Email.canParse` is still fast enough for 99% use cases.
+> - If you **only need to validate** email addresses, use `isEmail`.
+> - If you also need to be able to get or set an email username or hostname **independently**, use `Email.canParse`.
+>
+> When using the `Email` class, you can still use `isEmail` if you want ultra-performance (e.g. your Node API validates tons of emails per seconds) because `isEmail` is 6✕ faster, at the cost of a bit less than 100 Bytes (compressed).
+>
+> The reason `isEmail` is faster is that it relies on a single RegExp while `Email.canParse` uses the browser built-in, which results in a bit more of computation, but with less code. For now, it’s not planned to use isEmail implementation in `Email.canParse` as it would increase its size by 50 Bytes.
+> Keep in mind that **`Email.canParse` is fast enough** for the 99% use cases.
 > </details>
 
 ### `Email`
 
-A class to instantiate an `Email` object or validate email addresses.
+A class to instantiate an `Email` object or validate email addresses. It extends the [`URL` object](https://developer.mozilla.org/en-US/docs/Web/API/URL) and has similar predictable behaviors.
 
-Unlike most libraries using [RegEx to validate a string is an email](https://github.com/colinhacks/zod/blob/e2b9a5f9ac67d13ada61cd8e4b1385eb850c7592/src/types.ts#L648-L663) (which is prone to [bugs](https://github.com/colinhacks/zod/issues/3913)), Frontacles `Email` relies on the same mechanism as your browser, making it robust, and very likely RFC compliant.
+Unlike most libraries using [RegExp to validate a string is an email](https://github.com/colinhacks/zod/blob/e2b9a5f9ac67d13ada61cd8e4b1385eb850c7592/src/types.ts#L648-L663) (which is prone to [bugs](https://github.com/colinhacks/zod/issues/3913)), Frontacles `Email` relies on built-in `URL` mechanisms as your browser, making it robust, and very likely RFC compliant.
 
 ```js
 import { Email } from 'frontacles/url/email'
@@ -134,7 +136,7 @@ import { Email } from 'frontacles/url/email'
 const email = new Email('someone@domain.tld')
 ```
 
-Get or set the username and the hostname separately.
+Get or set the email username and hostname separately.
 
 ```js
 email.username // 'someone'
@@ -170,9 +172,7 @@ Another behaviour from the `URL` class: you can pass an `Email` object to the `E
 
 ```js
 const email = new Email('someone@domain.tld')
-
 const alsoEmail = new Email(email) // ✅ a new Email object!
-
 Email.canParse(email) // ✅ true
 ```
 

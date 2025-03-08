@@ -17,11 +17,12 @@ Compare with [last published version](https://github.com/frontacles/frontacles/c
 ### Documentation
 
 - It is now more explicit in types that `Email.canParse` expects a `string` or a `Stringable` (from `any|Email` to `any|string|Email|Stringable`).
+- Rephrase email documentation.
 
 ### Under the hood
 
-- Centralize all benchmarks in [`./benchs`](./benchs)
-- Benchmark [`Email`](./benchs/url)
+- Centralize all benchmarks in [`./benchs`](./benchs).
+- Benchmark [`Email`](./benchs/url).
 
 ## v0.3.0 (2025-03-06)
 
