@@ -21,12 +21,12 @@
     "test:types": "npm exec tsd",
     "test:ui": "vitest --ui --coverage.enabled --coverage.exclude=types",
     "coverage": "vitest run --coverage --coverage.exclude=types",
-    "bench": "vitest bench",
     "watch": "vitest watch",
     "build": "echo \"Nothing to build, this command is only here to please size-limit GitHub action\" && exit 0",
     "size": "size-limit",
     "lint": "eslint",
-    "lint-fix": "eslint --fix"
+    "lint:fix": "eslint --fix",
+    "lint:inspect": "eslint --inspect-config "
   },
   "files": [
     "CHANGELOG.md",
