@@ -32,7 +32,7 @@ Compare with [last published version](https://github.com/frontacles/frontacles/c
 ### Under the hood
 
 - Shorten `round` by a couple of Bytes.
-- Benchmark [`round` implementations](./src/math/bench)
+- Benchmark [`round` implementations](./benchs/math)
 - Add [Valibot test suite](./src/url/test-utils/valibot-suite.js) to `Email` (all tests are passing!).
 
 ### Documentation
