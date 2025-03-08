@@ -17,15 +17,15 @@ export class Email extends URL {
 	/**
 	 * Whether or not an email address is parsable and valid.
 	 *
-	 * @param {any|Email} address
+	 * @param {any|string|Email} address
 	 */
-	static canParse(address: any | Email): boolean;
+	static canParse(address: any | string | Email): boolean;
 	/**
 	 * @param {string|Email} address An email address like `someone@domain.tld`.
 	 */
 	constructor(address: string | Email);
 	#private;
 }
-export function isEmail(address: string | any): boolean;
+export function isEmail(address: any | string | Email): boolean;
 
 export {};
