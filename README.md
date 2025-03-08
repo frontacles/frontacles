@@ -120,7 +120,7 @@ isEmail('invalid@email.com:3000') // false
 >
 > When using the `Email` class, you can still use `isEmail` if you want ultra-performance (e.g. your Node API validates tons of emails per seconds) because `isEmail` is 6✕ faster, at the cost of a bit less than 100 Bytes (compressed).
 >
-> The reason `isEmail` is faster is that it relies on a single RegExp while `Email.canParse` uses the browser built-in, which results in a bit more of computation, but with less code. For now, it’s not planned to use isEmail implementation in `Email.canParse` as it would increase its size by 50 Bytes.
+> The reason `isEmail` is faster is that it relies on a single RegExp while `Email.canParse` uses the browser built-in, which results in a bit more of computation, but with less code. For now, it’s not planned to use `isEmail` implementation in `Email.canParse` as it would increase its size by 50 Bytes.
 > Keep in mind that **`Email.canParse` is fast enough** for the 99% use cases.
 > </details>
 
@@ -130,11 +130,29 @@ A class to instantiate an `Email` object or validate email addresses. It extends
 
 Unlike most libraries using [RegExp to validate a string is an email](https://github.com/colinhacks/zod/blob/e2b9a5f9ac67d13ada61cd8e4b1385eb850c7592/src/types.ts#L648-L663) (which is prone to [bugs](https://github.com/colinhacks/zod/issues/3913)), Frontacles `Email` relies on built-in `URL` mechanisms as your browser, making it robust, and very likely RFC compliant.
 
+#### `Email.constructor`
+
 ```js
 import { Email } from 'frontacles/url/email'
 
 const email = new Email('someone@domain.tld')
 ```
+
+Trying to instantiate an Email with an invalid address will throw. This behaviour is similar to the [`URL` constructor](https://developer.mozilla.org/en-US/docs/Web/API/URL/URL), since `Email` relies on it under the hood.
+
+```js
+new Email('double@at@sign.com') // ❌ throw TypeError
+```
+
+Another behaviour from `URL`: passing an `Email` object to the `Email` constructor or to `Email.canParse` is possible.
+
+```js
+const email = new Email('someone@domain.tld')
+const alsoEmail = new Email(email) // ✅ a new Email object!
+Email.canParse(email) // ✅ true
+```
+
+#### `.username` and `.hostname`
 
 Get or set the email username and hostname separately.
 
@@ -148,12 +166,16 @@ email.hostname = 'newdomain.tld' // ✅ domain migrated
 const { username, hostname } = new Email('someone@domain.tld')
 ```
 
-An `Email` object is converted to a string when used along another string, or by directly calling `toString`.
+#### `.toString`
+
+In a string context, an `Email` object is automatically converted to a string, or manually by calling the `toString` method.
 
 ```js
 console.log(`email: ${email}`) // 'email: someone@newdomain.tld'
 console.log(email.toString()) // 'someone@newdomain.tld'
 ```
+
+#### `Email.canParse`
 
 Validate an email address with `Email.canParse`. It passes [popular libraries test suites](./src/url/test-utils), and beyond.
 
@@ -162,19 +184,7 @@ Email.canParse('someone@domain.tld') // true
 Email.canParse('invalid@email.com:3000') // false
 ```
 
-Trying to instantiate an Email with an invalid address will throw. This behaviour is similar to the [`URL` constructor](https://developer.mozilla.org/en-US/docs/Web/API/URL/URL), since `Email` relies on it under the hood.
-
-```js
-new Email('double@at@sign.com') // ❌ throw TypeError
-```
-
-Another behaviour from the `URL` class: you can pass an `Email` object to the `Email` constructor (or to `Email.canParse`, but it doesn’t really make sense).
-
-```js
-const email = new Email('someone@domain.tld')
-const alsoEmail = new Email(email) // ✅ a new Email object!
-Email.canParse(email) // ✅ true
-```
+If `canParse` is all you need from the `Email` class, consider using [isEmail](#isemail) instead.
 
 ## Changelog
 

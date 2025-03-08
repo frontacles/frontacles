@@ -16,7 +16,7 @@ Compare with [last published version](https://github.com/frontacles/frontacles/c
 
 ### Documentation
 
-- It is now more explicit in types that `Email.canParse` expects a `string` or a `Stringable` (from `any|Email` to `any|string|Email|Stringable`).
+- It is now more explicit in types that `Email.canParse` expects a `string` or a `Stringable` (changed from `any|Email` to `any|string|Email|Stringable`).
 - Rephrase email documentation.
 
 ### Under the hood
