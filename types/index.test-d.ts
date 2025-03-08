@@ -1,13 +1,27 @@
 import { expectError, expectType } from 'tsd'
-import { clamp, Email, round } from '.'
+import { clamp, Email, isEmail, round } from '.'
 
 /**
- * Test url/email
+ * Test math/*
+ */
+
+expectType<number>(clamp(0, 1, 2))
+expectType<number>(round(Math.PI, 3))
+
+/**
+ * Test url/isEmail
+ */
+
+const myEmail = new Email('someone@domain.tld')
+expectType<boolean>(isEmail('someone@domain.tld'))
+expectType<boolean>(isEmail(myEmail))
+
+/**
+ * Test url/Email
  */
 
 // Correct instantiations
 
-const myEmail = new Email('someone@domain.tld')
 expectType<Email>(myEmail)
 expectType<string>(myEmail.username)
 expectType<string>(myEmail.hostname)
@@ -27,11 +41,3 @@ expectType<boolean>(Email.canParse(new Date()))
 
 expectType<string>(myEmail.toString())
 expectType<string>(`${myEmail}`)
-
-
-/**
- * Test math
- */
-
-expectType<number>(clamp(0, 1, 2))
-expectType<number>(round(Math.PI, 3))
