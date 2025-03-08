@@ -1,0 +1,33 @@
+✓ src/url/bench/email.bench.js > url/email passing all tests 9054ms
+     name                                               hz     min     max    mean     p75     p99    p995    p999     rme  samples
+   · `EmailWithURL.canParse` (current)        2,179,868.71  0.0003  1.6480  0.0005  0.0005  0.0007  0.0008  0.0024  ±0.83%  1089935
+   · `EmailClassWithRegExp.canParse`         12,644,349.22  0.0000  0.1205  0.0001  0.0001  0.0001  0.0001  0.0003  ±0.07%  6322175   fastest
+   · `emailWithRegExp`                       12,591,750.06  0.0000  0.0951  0.0001  0.0001  0.0001  0.0001  0.0003  ±0.09%  6295876
+   · `validator/isEmail`                        687,041.51  0.0013  1.0840  0.0015  0.0015  0.0018  0.0018  0.0023  ±0.57%   343521
+   · yup create schema and `isValidSync`        583,325.45  0.0015  1.0215  0.0017  0.0017  0.0023  0.0025  0.0039  ±0.65%   291663   slowest
+   · yup precalculated schema `isValidSync`   2,119,568.48  0.0004  0.8205  0.0005  0.0005  0.0009  0.0010  0.0014  ±0.35%  1059785
+
+ ✓ src/url/bench/email.bench.js > url/email not passing all tests 6586ms
+     name                                            hz     min     max    mean     p75     p99    p995    p999     rme  samples
+   · joi create schema and `.validate`       253,982.40  0.0035  0.2929  0.0039  0.0038  0.0072  0.0075  0.0100  ±0.30%   126992   slowest
+   · joi precalculated schema `.validate`    451,327.09  0.0018  0.2371  0.0022  0.0020  0.0055  0.0057  0.0063  ±0.34%   225664
+   · valibot create schema and `.is`         418,174.84  0.0020  2.1162  0.0024  0.0021  0.0037  0.0041  0.0101  ±3.05%   209088
+   · valibot precalculated schema `.is`    8,644,880.79  0.0000  0.3610  0.0001  0.0001  0.0001  0.0002  0.0003  ±0.49%  4322441   fastest
+   · zod create schema and `.parse`        1,041,326.83  0.0008  0.2860  0.0010  0.0009  0.0013  0.0014  0.0018  ±0.58%   520664
+   · zod precalculated schema `.parse`     5,605,169.93  0.0001  0.0401  0.0002  0.0002  0.0002  0.0003  0.0004  ±0.03%  2802585
+
+ BENCH  Summary
+
+  `EmailClassWithRegExp.canParse` - src/url/bench/email.bench.js > url/email passing all tests
+    1.00x faster than `emailWithRegExp`
+    5.80x faster than `EmailWithURL.canParse` (current)
+    5.97x faster than yup precalculated schema `isValidSync`
+    18.40x faster than `validator/isEmail`
+    21.68x faster than yup create schema and `isValidSync`
+
+  valibot precalculated schema `.is` - src/url/bench/email.bench.js > url/email not passing all tests
+    1.54x faster than zod precalculated schema `.parse`
+    8.30x faster than zod create schema and `.parse`
+    19.15x faster than joi precalculated schema `.validate`
+    20.67x faster than valibot create schema and `.is`
+    34.04x faster than joi create schema and `.validate`

@@ -4,11 +4,16 @@ This project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.htm
 
 ## Unreleased
 
-Nothing for now.
+<!-- Nothing for now. -->
 
 <!-- ⚠️ Before a new release, make sure the documentation doesn't contain any **unreleased** mention.  -->
 
 Compare with [last published version](https://github.com/frontacles/frontacles/compare/0.2.3...main).
+
+### Under the hood
+
+- Centralize all benchmarks in [`./benchs`](./benchs)
+- Benchmark [`Email`](./benchs/url)
 
 ## v0.3.0 (2025-03-06)
 
@@ -32,7 +37,7 @@ Compare with [last published version](https://github.com/frontacles/frontacles/c
 ### Under the hood
 
 - Shorten `round` by a couple of Bytes.
-- Benchmark [`round` implementations](./src/math/bench)
+- Benchmark [`round` implementations](./benchs/math)
 - Add [Valibot test suite](./src/url/test-utils/valibot-suite.js) to `Email` (all tests are passing!).
 
 ### Documentation
