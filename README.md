@@ -107,9 +107,10 @@ isEmail('invalid@email.com:3000') // false
 ```
 
 > [!TIP]  
-> Should I use `isEmail` or `Email.canParse` to validate emails?
+> Should I use `isEmail` or [`Email.canParse`](#emailcanparse) to validate emails?
+>
 > Short answer: use `isEmail`.
-> 
+>
 > <details>
 > <summary>Nuanced answer</summary>
 >
@@ -128,8 +129,6 @@ isEmail('invalid@email.com:3000') // false
 
 A class to instantiate an `Email` object or validate email addresses. It extends the [`URL` object](https://developer.mozilla.org/en-US/docs/Web/API/URL) and has similar predictable behaviors.
 
-Unlike most libraries using [RegExp to validate a string is an email](https://github.com/colinhacks/zod/blob/e2b9a5f9ac67d13ada61cd8e4b1385eb850c7592/src/types.ts#L648-L663) (which is prone to [bugs](https://github.com/colinhacks/zod/issues/3913)), Frontacles `Email` relies on built-in `URL` mechanisms as your browser, making it robust, and very likely RFC compliant.
-
 #### `Email.constructor`
 
 ```js
@@ -144,7 +143,7 @@ Trying to instantiate an Email with an invalid address will throw. This behaviou
 new Email('double@at@sign.com') // ❌ throw TypeError
 ```
 
-Another behaviour from `URL`: passing an `Email` object to the `Email` constructor or to `Email.canParse` is possible.
+Another behaviour from `URL`: passing an `Email` object to the `Email` constructor or to [`Email.canParse`](#emailcanparse) is possible.
 
 ```js
 const email = new Email('someone@domain.tld')
@@ -177,7 +176,9 @@ console.log(email.toString()) // 'someone@newdomain.tld'
 
 #### `Email.canParse`
 
-Validate an email address with `Email.canParse`. It passes [popular libraries test suites](./src/url/test-utils), and beyond.
+Validate an email address with `Email.canParse`.
+
+Unlike most libraries using [RegExp to validate a string is an email](https://github.com/colinhacks/zod/blob/e2b9a5f9ac67d13ada61cd8e4b1385eb850c7592/src/types.ts#L648-L663) (which is prone to [bugs](https://github.com/colinhacks/zod/issues/3913)), Frontacles `Email` relies on built-in `URL` mechanisms as your browser, making it robust, and very likely RFC compliant. It passes [popular libraries test suites](./src/url/test-utils), and beyond.
 
 ```js
 Email.canParse('someone@domain.tld') // true
