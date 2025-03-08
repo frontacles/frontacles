@@ -4,11 +4,15 @@ This project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.htm
 
 ## Unreleased
 
-<!-- Nothing for now. -->
+Nothing for now.
 
 <!-- ⚠️ Before a new release, make sure the documentation doesn't contain any **unreleased** mention.  -->
 
-Compare with [last published version](https://github.com/frontacles/frontacles/compare/0.2.3...main).
+<!-- Compare with [last published version](https://github.com/frontacles/frontacles/compare/0.4.0...main). -->
+
+## v0.4.0 (2025-03-08)
+
+Compare with [previous version](https://github.com/frontacles/frontacles/compare/0.3.0...0.4.0).
 
 ### New
 
@@ -26,7 +30,7 @@ Compare with [last published version](https://github.com/frontacles/frontacles/c
 
 ## v0.3.0 (2025-03-06)
 
-Compare with [last published version](https://github.com/frontacles/frontacles/compare/0.2.2...0.2.3).
+Compare with [previous version](https://github.com/frontacles/frontacles/compare/0.2.2...0.3.0).
 
 ### New
 
@@ -57,7 +61,7 @@ Compare with [last published version](https://github.com/frontacles/frontacles/c
 
 ## v0.2.2 (2025-03-01)
 
-Compare with [last published version](https://github.com/frontacles/frontacles/compare/0.2.1...0.2.2).
+Compare with [previous version](https://github.com/frontacles/frontacles/compare/0.2.1...0.2.2).
 
 ### Breaking
 
