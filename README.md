@@ -13,7 +13,8 @@ We love tiny bits (using brotli compression):
 | math | [`round`](#round) | 38 B |
 | string | [`capitalize`](#capitalize) | 40 B |
 | url | [`Email`](#email) | 173 B |
-|  | **everything** | 252 B |
+| url | [`isEmail`](#isemail) | 86 B |
+|  | **everything** | 328 B |
 
 ## Math utils
 
@@ -97,6 +98,21 @@ capitalize('صحراء') // 'صحراء' (Arabic)
 
 ## URL utils
 
+### `isEmail`
+
+Tells whether a string is a valid email.
+
+```js
+isEmail('someone@domain.tld') // true
+isEmail('invalid@email.com:3000') // false
+```
+
+> [!TIP]  
+> <details>
+> <summary>Should I use `isEmail` or `Email.canParse`?</summary>
+> To complete.
+> </details>
+
 ### `Email`
 
 A class to instantiate an `Email` object or validate email addresses.
@@ -128,7 +144,7 @@ console.log(`email: ${email}`) // 'email: someone@newdomain.tld'
 console.log(email.toString()) // 'someone@newdomain.tld'
 ```
 
-Validate an email address with `Email.canParse`. It passes the complete Zod test suites, and beyond.
+Validate an email address with `Email.canParse`. It passes [popular libraries test suites](./src/url/test-utils), and beyond.
 
 ```js
 Email.canParse('someone@domain.tld') // true
