@@ -7,14 +7,14 @@ Cool utilities for front-end development (and potentially for Node).
 
 We love tiny bits (using brotli compression):
 
-| categories | util | size |
-| --- | --- | --- |
-| math | [`clamp`](#clamp) | 35 B |
-| math | [`round`](#round) | 38 B |
-| string | [`capitalize`](#capitalize) | 40 B |
-| url | [`isEmail`](#isemail) | 86 B |
-| url | [`Email`](#email) | 173 B |
-|  | **everything** | 328 B |
+| category | util | size | description |
+| --- | --- | --- | --- |
+| math | [`clamp`](#clamp) | 35 B | Make sure a number stays in a given range. |
+| math | [`round`](#round) | 38 B | Round a number to a given precision |
+| string | [`capitalize`](#capitalize) | 40 B | Capitalize the first letter of a string. |
+| url | [`isEmail`](#isemail) | 86 B | Wheither a variable is a valid email address. |
+| url | [`Email`](#email) | 173 B | An `Email` object with validation and separate access to an email username and domain. |
+|  | **everything** | 328 B | |
 
 ## Math utils
 
