@@ -7,11 +7,13 @@ import isEmail from 'validator/es/lib/isEmail'
 import * as valibot from 'valibot'
 import yup from 'yup'
 import { z } from 'zod'
+import { isEmailValid } from '@toss/validators'
 
 describe('url/email passing all tests', () => {
   const EmailWithURL = EmailClassWithURL
   const EmailWithRegExp = EmailClassWithRegExp
   const emailWithRegExp = isEmailWithRegExp
+  const tossIsEmail = isEmailValid
   const validatorIsEmail = isEmail
   const y = yup
 
@@ -31,6 +33,10 @@ describe('url/email passing all tests', () => {
 
   bench('`validator/isEmail`', () =>
     validatorIsEmail('someone@domain.tld')
+  )
+
+  bench('`@toss/validators/isValidEmail`', () =>
+    tossIsEmail('someone@domain.tld')
   )
 
   bench('yup create schema and `isValidSync`', () =>
