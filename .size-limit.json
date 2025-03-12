@@ -5,6 +5,16 @@
     "import": "{ Email }"
   },
   {
+    "name": "`subArray`",
+    "path": "src/index.js",
+    "import": "{ subArray }"
+  },
+  {
+    "name": "`subSet`",
+    "path": "src/index.js",
+    "import": "{ subSet }"
+  },
+  {
     "name": "`isEmail`",
     "path": "src/index.js",
     "import": "{ isEmail }"
@@ -23,6 +33,11 @@
     "name": "`round`",
     "path": "src/index.js",
     "import": "{ round }"
+  },
+  {
+    "name": "`sameArray`",
+    "path": "src/index.js",
+    "import": "{ sameArray }"
   },
   {
     "name": "**All modules** (`import *`)",
