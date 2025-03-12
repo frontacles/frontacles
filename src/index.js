@@ -1,3 +1,4 @@
+export * from './array/index.js'
 export * from './dom/index.js'
 export * from './math/index.js'
 export * from './string/index.js'
