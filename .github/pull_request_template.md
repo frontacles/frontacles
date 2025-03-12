@@ -6,10 +6,10 @@
 
 This pull request:
 
-- [ ] adds new feature
+- [ ] adds a new feature
 - [ ] fixes a bug
-- [ ] improves [documentation](https://github.com/frontacles/frontacles/blob/main/README.md)
-- [ ] does something else (refactor, performance…)
+- [ ] improves the [documentation](https://github.com/frontacles/frontacles/blob/main/README.md)
+- [ ] does something else (refactor, performance, CI…)
 
 The code I add comes with:
 
