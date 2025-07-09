@@ -3,11 +3,13 @@ import { subArray, subSet } from '..'
 
 const fruits = ['apple', 'apricot', 'grape', 'pear', 'tomato']
 const goodForjuices = ['apple', 'grape', 'pear']
+const goodForjuicesWithRepetition = ['apple', 'grape', 'apple']
 const goodForjuicesAsShuffledArray = ['pear', 'apple', 'grape']
 
 const fruitsSet = new Set(fruits)
 const goodForjuicesSet = new Set(goodForjuices)
-const goodForjuicesAsShuffledArraySet = new Set(goodForjuicesAsShuffledArray)
+const goodForjuicesWithRepetitionSet = new Set(goodForjuicesWithRepetition)
+const goodForjuicesAsShuffledSet = new Set(goodForjuicesAsShuffledArray)
 
 describe('array/subArray', () => {
   test('subArray() is a function', () =>
@@ -24,6 +26,9 @@ describe('array/subArray', () => {
 
   test('as array: shuffled needles items in haystack items', () =>
     expect(subArray(fruits, goodForjuicesAsShuffledArray)).toBeTruthy())
+
+  test('as array: repetition of same needle not in same amount in haystack', () =>
+    expect(subArray(fruits, goodForjuicesWithRepetition)).toBeTruthy())
 })
 
 describe('array/subSet', () => {
@@ -40,7 +45,10 @@ describe('array/subSet', () => {
     expect(subSet(goodForjuicesSet, fruitsSet)).toBeFalsy())
 
   test('as Set: shuffled needles items in haystack items', () =>
-    expect(subSet(fruitsSet, goodForjuicesAsShuffledArraySet)).toBeTruthy())
+    expect(subSet(fruitsSet, goodForjuicesAsShuffledSet)).toBeTruthy())
+
+  test('as Set: repetition of same needle not in same amount in haystack', () =>
+    expect(subSet(fruitsSet, goodForjuicesWithRepetitionSet)).toBeTruthy())
 
   test('as array: needles items in haystack items', () =>
     expect(subSet(fruits, goodForjuices)).toBeTruthy())
