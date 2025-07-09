@@ -26,7 +26,7 @@
     "size": "size-limit",
     "lint": "eslint",
     "lint:fix": "eslint --fix",
-    "lint:inspect": "eslint --inspect-config "
+    "lint:inspect": "eslint --inspect-config"
   },
   "files": [
     "CHANGELOG.md",
