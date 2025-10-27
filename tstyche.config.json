@@ -1,5 +1,4 @@
 {
 	"$schema": "https://tstyche.org/schemas/config.json",
-	"checkSourceFiles": false,
 	"testFileMatch": ["**/*.test-d.ts"]
 }
