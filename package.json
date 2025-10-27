@@ -1,71 +1,71 @@
 {
-  "name": "frontacles",
-  "version": "0.4.0",
-  "description": "Front-end utilities for artisans",
-  "type": "module",
-  "sideEffects": false,
-  "exports": {
-    ".": {
-      "import": "./src/index.js",
-      "types": "./types/index.d.ts"
-    }
-  },
-  "types": "./types/index.d.ts",
-  "engines": {
-    "node": ">=20.18.1"
-  },
-  "scripts": {
-    "types": "tsc && dts-bundle-generator --silent --no-banner=true -o types/index.d.ts types-transitive/index.d.ts",
-    "posttypes": "node scripts/inject-jsdoc.mjs",
-    "test": "vitest run",
-    "test:types": "tstyche",
-    "test:ui": "vitest --ui --coverage.enabled --coverage.exclude=types",
-    "coverage": "vitest run --coverage --coverage.exclude=types",
-    "watch": "vitest watch",
-    "build": "echo \"Nothing to build, this command is only here to please size-limit GitHub action\" && exit 0",
-    "size": "size-limit",
-    "lint": "eslint",
-    "lint:fix": "eslint --fix",
-    "lint:inspect": "eslint --inspect-config"
-  },
-  "files": [
-    "CHANGELOG.md",
-    "src/**/*.js",
-    "!src/**/test-utils",
-    "!src/**/*.test.js",
-    "types/index.d.ts"
-  ],
-  "keywords": [
-    "utilities",
-    "email",
-    "math",
-    "round"
-  ],
-  "homepage": "https://github.com/frontacles/frontacles",
-  "author": "Mehdi Merah",
-  "license": "WTFPL",
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/frontacles/frontacles.git"
-  },
-  "bugs": {
-    "url": "https://github.com/frontacles/frontacles/issues"
-  },
-  "publishConfig": {
-    "access": "public"
-  },
-  "devDependencies": {
-    "@eslint/js": "^9.9.0",
-    "@size-limit/preset-small-lib": "^11.1.4",
-    "@vitest/coverage-v8": "^3",
-    "@vitest/eslint-plugin": "^1.0.1",
-    "@vitest/ui": "^3",
-    "dts-bundle-generator": "^9.5.1",
-    "eslint": "^9.9.0",
-    "size-limit": "^11.1.4",
-    "tstyche": "^5.0.0",
-    "typescript": "^5.5.4",
-    "typescript-eslint": "^8.0.1",
-    "vitest": "^3"
-  }
+	"name": "frontacles",
+	"version": "0.4.0",
+	"description": "Front-end utilities for artisans",
+	"type": "module",
+	"sideEffects": false,
+	"exports": {
+		".": {
+			"import": "./src/index.js",
+			"types": "./types/index.d.ts"
+		}
+	},
+	"types": "./types/index.d.ts",
+	"engines": {
+		"node": ">=20.18.1"
+	},
+	"scripts": {
+		"types": "tsc && dts-bundle-generator --silent --no-banner=true -o types/index.d.ts types-transitive/index.d.ts",
+		"posttypes": "node scripts/inject-jsdoc.mjs",
+		"test": "vitest run",
+		"test:types": "tstyche",
+		"test:ui": "vitest --ui --coverage.enabled --coverage.exclude=types",
+		"coverage": "vitest run --coverage --coverage.exclude=types",
+		"watch": "vitest watch",
+		"build": "echo \"Nothing to build, this command is only here to please size-limit GitHub action\" && exit 0",
+		"size": "size-limit",
+		"lint": "eslint",
+		"lint:fix": "eslint --fix",
+		"lint:inspect": "eslint --inspect-config"
+	},
+	"files": [
+		"CHANGELOG.md",
+		"src/**/*.js",
+		"!src/**/test-utils",
+		"!src/**/*.test.js",
+		"types/index.d.ts"
+	],
+	"keywords": [
+		"utilities",
+		"email",
+		"math",
+		"round"
+	],
+	"homepage": "https://github.com/frontacles/frontacles",
+	"author": "Mehdi Merah",
+	"license": "WTFPL",
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/frontacles/frontacles.git"
+	},
+	"bugs": {
+		"url": "https://github.com/frontacles/frontacles/issues"
+	},
+	"publishConfig": {
+		"access": "public"
+	},
+	"devDependencies": {
+		"@eslint/js": "^9.9.0",
+		"@size-limit/preset-small-lib": "^11.1.4",
+		"@vitest/coverage-v8": "^3",
+		"@vitest/eslint-plugin": "^1.0.1",
+		"@vitest/ui": "^3",
+		"dts-bundle-generator": "^9.5.1",
+		"eslint": "^9.9.0",
+		"size-limit": "^11.1.4",
+		"tstyche": "^5.0.0",
+		"typescript": "^5.5.4",
+		"typescript-eslint": "^8.0.1",
+		"vitest": "^3"
+	}
 }
