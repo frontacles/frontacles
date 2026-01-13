@@ -1,5 +1,5 @@
 import { expectError, expectType } from 'tsd'
-import { clamp, Email, isEmail, round } from '.'
+import { clamp, Email, isEmail, round } from '../src/index.js'
 
 /**
  * Test math/*
