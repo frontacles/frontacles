@@ -64,6 +64,7 @@
     "@vitest/ui": "^4",
     "dts-bundle-generator": "^9.5.1",
     "eslint": "^9.9.0",
+    "globals": "^17",
     "size-limit": "^12",
     "tsd": "^0.33",
     "typescript": "^5.5.4",
