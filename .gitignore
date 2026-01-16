@@ -3,5 +3,5 @@ node_modules
 coverage
 types-transitive
 
-# Directory for failing test in browser mode.
+# Directory for failing tests in browser mode.
 __screenshots__
