@@ -1,11 +1,15 @@
-import tseslint from 'typescript-eslint'
 import js from '@eslint/js'
 import vitest from '@vitest/eslint-plugin'
+import globals from 'globals'
+import tseslint from 'typescript-eslint'
+
+// Note: configs are cascading (https://eslint.org/docs/latest/use/configure/configuration-files#cascading-configuration-objects).
 
 export default tseslint.config(
-  js.configs.recommended,
   {
-    files: ['**/*.js'],
+    name: 'All files',
+    files: ['**/*.{js,mjs}'],
+    ignores: ['coverage/**'],
     languageOptions: {
       sourceType: 'module',
       ecmaVersion: 'latest',
@@ -15,6 +19,8 @@ export default tseslint.config(
         },
       },
     },
+    plugins: { js },
+    extends: [js.configs.recommended],
 
     // (first parameter of a rule) 0: off, 1: warning, 2: error
     rules: {
@@ -66,8 +72,12 @@ export default tseslint.config(
     },
   },
   {
+    name: 'Tests',
     files: ['**/*.test.js'],
     plugins: { vitest },
+    languageOptions: {
+      globals: vitest.environments.env.globals,
+    },
     rules: {
       ...vitest.configs.recommended.rules,
       // ...vitest.configs.all.rules, // worth testing from time to time…
@@ -80,10 +90,12 @@ export default tseslint.config(
       'vitest/prefer-todo': 1,
       'vitest/require-to-throw-message': 1,
     },
+  },
+  {
+    name: 'DOM utils and tests',
+    files: ['src/dom/**/*.js'],
     languageOptions: {
-      globals: {
-        ...vitest.environments.env.globals,
-      },
+      globals: globals.browser,
     },
   },
 )
