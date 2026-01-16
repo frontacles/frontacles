@@ -63,7 +63,7 @@
     "dts-bundle-generator": "^9.5.1",
     "eslint": "^9.9.0",
     "size-limit": "^11.1.4",
-    "tstyche": "^5.0.0",
+    "tstyche": "^6.0.2",
     "typescript": "^5.5.4",
     "typescript-eslint": "^8.0.1",
     "vitest": "^3"
