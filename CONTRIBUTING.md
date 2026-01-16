@@ -23,9 +23,9 @@ When reporting a bug, here are the informations you can provide to help other pe
 
 ## Tests
 
-Tests are using Vitest, and a command for [its UI](https://vitest.dev/guide/ui.html) is available (`npm run test:ui`).
+Tests are using [Vitest](https://vitest.dev), and a command for [its UI](https://vitest.dev/guide/ui.html) is available (`npm run test:ui`).
 
-Tests using APIs only available in the browser are using [Playwright](https://playwright.dev) via [Vitest browser mode](https://vitest.dev/guide/browser). If you need a screenshot of a failing test for debug purpose, look into `.env.example`.
+[Playwright](https://playwright.dev) is used via [Vitest browser mode](https://vitest.dev/guide/browser) to test utilities using APIs that are only available in the browser. If you need a screenshot of a failing test for debug purpose, look into `.env.example`.
 
 ## Pull requests
 
