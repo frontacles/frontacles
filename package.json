@@ -58,6 +58,7 @@
   "devDependencies": {
     "@eslint/js": "^9.9.0",
     "@size-limit/preset-small-lib": "^12",
+    "@vitest/browser-playwright": "^4",
     "@vitest/coverage-v8": "^4",
     "@vitest/eslint-plugin": "^1.0.1",
     "@vitest/ui": "^4",
