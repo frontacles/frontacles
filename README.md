@@ -9,12 +9,108 @@ We love tiny bits (using brotli compression):
 
 | category | util | size | description |
 | --- | --- | --- | --- |
+| DOM | [`setAttributes`](#setattributes) | 275 B | Update multiple attributes on multiple HTML elements |
 | math | [`clamp`](#clamp) | 35 B | Make sure a number stays in a given range. |
 | math | [`round`](#round) | 38 B | Round a number to a given precision |
 | string | [`capitalize`](#capitalize) | 40 B | Capitalize the first letter of a string. |
-| url | [`isEmail`](#isemail) | 86 B | Wheither a variable is a valid email address. |
-| url | [`Email`](#email) | 173 B | An `Email` object with validation and separate access to an email username and domain. |
+| URL | [`isEmail`](#isemail) | 86 B | Wheither a variable is a valid email address. |
+| URL | [`Email`](#email) | 173 B | An `Email` object with validation and separate access to an email username and domain. |
 |  | **everything** | 328 B | |
+
+## DOM utils
+
+### `setAttributes`
+
+This function bulk updates the attribute(s) of one or many HTML element(s).
+
+```js
+import { setAttributes } from 'frontacles/dom'
+
+const widget = getElementById('animal-widget')
+
+// `<div name="Animal widget" loading="true">`
+setAttributes(widget, {
+  name: 'Animal widget'
+  loading: true,
+})
+```
+
+To remove an attribute, set its value to `false`, `null` or `undefined`.
+
+```js
+// `<div name="Animal widget">`
+setAttributes(widget, { loading: false })
+
+// `<div name="Animal widget" loading="false">`
+setAttributes(widget, { loading: 'false' })
+```
+
+Providing multiple HTML elements (array or [HTML collection](https://developer.mozilla.org/en-US/docs/Web/API/HTMLCollection)) sets the same attributes values to all of them:
+
+```js
+const animals = widget.getElementsbyClassName('.list-item')
+
+// `<li class="list-item" data-cat="animals">cat</li>`
+setAttributes(animals, { 'data-cat': 'animals' })
+```
+
+When an attribute is an object, its properties are converted to `attrName-propName` attributes, making it helpful for any bulk update of `aria-*` or `data-*` attributes:
+
+```js
+setAttributes(el, {
+  loading: true,
+  aria: {
+    busy: true,
+    live: 'polite',
+  },
+  data: {
+    category: 'boats',
+    'max-items': 12,
+  },
+  user: {
+    id: 4,
+    name: 'Liz',
+  },
+})
+```
+
+The previous example gives:
+
+```html
+<div
+  loading="true"
+  aria-busy="true" aria-live="polite"
+  data-category="boats" data-max-items="12"
+  user-id="4" user-name="Liz"
+>
+```
+
+Like for non-object attributes, using `false`, `null` or `undefined` as property value will remove the matching attribute from the HTML:
+
+```js
+setAttributes(el, { data: { 'max-items': null }}) // no more `data-max-items`
+```
+
+> [!NOTE]  
+> `data` is using [`dataset`](https://developer.mozilla.org/en-US/docs/Web/API/HTMLElement/dataset) under the hood but differs from it: in the previous example of property removal, `el.dataset.maxItems = null` would have stringify `null` into `'null'`, giving `data-max-items="null"` instead of a removal. `setAttributes` applies this logic to all types of values.
+
+When used as objects, `style` and (soon) `class` are predictable ways of dealing with inline CSS and CSS classes. When used as string, they completely replace the attribute.
+
+```js
+// <div style="color: red; opacity: 0.9">
+setAttributes(el, {
+  style: {
+    color: 'red',
+    opacity: .9
+  }
+})
+
+// <div style="color: red;">
+setAttributes(el, { style: { opacity: null }})
+
+// <div style="gap: 2px; opacity: .9;">
+setAttributes(el, { style: 'gap: 2px; opacity: .9;')
+```
 
 ## Math utils
 
