@@ -1,3 +1,6 @@
+export function subArray(haystack: any[], needles: any[]): boolean;
+export function subSet(haystack: Set<any>, needles: Set<any>): boolean;
+export function sameArray(a1: any[], a2: any[]): boolean;
 export function clamp(val: number, min: number, max: number): number;
 export function round(number: number, precision?: number): number;
 export function capitalize(str: string): string;
