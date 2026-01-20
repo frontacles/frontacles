@@ -9,7 +9,7 @@ We love tiny bits (using brotli compression):
 
 | category | util | size | description |
 | --- | --- | --- | --- |
-| DOM | [`setAttributes`](#setattributes) | 275 B | Update multiple attributes on multiple HTML elements |
+| DOM | [`setAttributes`](#setattributes) | 349 B | Update multiple attributes on multiple HTML elements |
 | math | [`clamp`](#clamp) | 35 B | Make sure a number stays in a given range. |
 | math | [`round`](#round) | 38 B | Round a number to a given precision |
 | string | [`capitalize`](#capitalize) | 40 B | Capitalize the first letter of a string. |
@@ -21,7 +21,7 @@ We love tiny bits (using brotli compression):
 
 ### `setAttributes`
 
-This function bulk updates the attribute(s) of one or many HTML element(s).
+Updates in bulk the attribute(s) of one or many HTML element(s).
 
 ```js
 import { setAttributes } from 'frontacles/dom'
@@ -94,7 +94,27 @@ setAttributes(el, { data: { 'max-items': null }}) // no more `data-max-items`
 > [!NOTE]  
 > `data` is using [`dataset`](https://developer.mozilla.org/en-US/docs/Web/API/HTMLElement/dataset) under the hood but differs from it: in the previous example of property removal, `el.dataset.maxItems = null` would have stringify `null` into `'null'`, giving `data-max-items="null"` instead of a removal. `setAttributes` applies this logic to all types of values.
 
-When used as objects, `style` and (soon) `class` are predictable ways of dealing with inline CSS and CSS classes. When used as string, they completely replace the attribute.
+
+`class` deals with CSS classes. It can be an array of CSS classes or a string containing one or more (space-separated) classes that will be added to the element(s). It can also be an object in the form of `{ className: state }`, defining of each class should be added or removed from the element.
+
+```js
+// <div class="btn btn--xl">
+setAttributes(el, { class: { btn: true, 'btn--xl': true }})
+
+// <div class="btn btn--xl card__btn">
+setAttributes(el, { class: ['card__btn'] })
+
+// <div class="btn btn--xl card__btn card__btn--special">
+setAttributes(el, { class: 'card__btn--special' })
+
+// <div class="btn btn--xl card__btn card__btn--special card__btn--1 card__btn--2">
+setAttributes(el, { class: 'card__btn--1 card__btn--2' })
+
+// <div class="btn card__btn card__btn--special card__btn--1 card__btn--2">
+setAttributes(el, { class: { 'btn--xl': false }})
+```
+
+When `style` is an object, it behaves like [`HTMLElement.style`](). When it’s a string, it completely replaces the attribute.
 
 ```js
 // <div style="color: red; opacity: 0.9">
