@@ -139,16 +139,17 @@ describe('dom/setAttributes', () => {
     expect(locator).toHaveAttribute('data', 'not an object')
   })
 
-  test.todo('handles CSS classes with { class: /* string or object */', () => {
+  test('handles CSS classes with { class: /* string or object */', () => {
 
     // should add
     setAttributes(el, { class: { btn: true, 'btn--secondary': true }})
     setAttributes(el, { class: ['card__btn'] })
     setAttributes(el, { class: 'card__btn--special' })
-    expect(locator).toHaveClass('btn', 'btn--secondary', 'card__btn', 'card__btn--special')
+    setAttributes(el, { class: 'card__btn--1 card__btn--2' })
+    expect(locator).toHaveClass('btn', 'btn--secondary', 'card__btn', 'card__btn--special', 'card__btn--1', 'card__btn--2')
 
     // should remove
-    setAttributes(el, { 'btn--secondary': false })
+    setAttributes(el, { class: { 'btn--secondary': false }})
     expect(locator).not.toHaveClass('btn--secondary')
   })
 
