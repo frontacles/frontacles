@@ -1,5 +1,10 @@
 [
   {
+    "name": "`setAttributes`",
+    "path": "src/index.js",
+    "import": "{ setAttributes }"
+  },
+  {
     "name": "`Email`",
     "path": "src/index.js",
     "import": "{ Email }"
