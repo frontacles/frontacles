@@ -1,4 +1,8 @@
+<!-- On the next line, describe the changes you bring, then fill the checklist. -->
+
 <!-- Thanks for your contribution! -->
+
+---
 
 ## Checklist
 
@@ -20,5 +24,3 @@ The code I add comes with:
 - [ ] [benchmarks](https://github.com/frontacles/frontacles/blob/main/CONTRIBUTING.md#benchmarks)
 
 <!-- If you are not familiar with everything, you can still submit a pull request. -->
-
----
