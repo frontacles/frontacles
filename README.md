@@ -15,7 +15,7 @@ We love tiny bits (using brotli compression):
 | string | [`capitalize`](#capitalize) | 40 B | Capitalize the first letter of a string. |
 | URL | [`isEmail`](#isemail) | 86 B | Wheither a variable is a valid email address. |
 | URL | [`Email`](#email) | 173 B | An `Email` object with validation and separate access to an email username and domain. |
-|  | **everything** | 328 B | |
+|  | **everything** | 657 B | |
 
 ## DOM utils
 

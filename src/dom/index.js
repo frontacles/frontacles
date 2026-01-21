@@ -19,6 +19,8 @@
  * - `class` can also be a string with one or more classes (space-separated),
  *   or an array of classes.
  *
+ * @todo Check how it behaves on SVGs.
+ *
  * @param {HTMLElement|HTMLElement[]|HTMLCollection} elements
  * @param {Record<string, any>} fnAttributes
  * {@link https://github.com/meduzen/setAttributes}
