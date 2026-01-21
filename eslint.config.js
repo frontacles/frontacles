@@ -7,6 +7,9 @@ import tseslint from 'typescript-eslint'
 
 export default tseslint.config(
   {
+    ignores: ['coverage/**'],
+  },
+  {
     name: 'All files',
     files: ['**/*.{js,mjs}'],
     ignores: ['coverage/**'],
@@ -43,7 +46,7 @@ export default tseslint.config(
       'func-call-spacing': 2,
       'keyword-spacing': 2,
       'key-spacing': [2, { mode: 'minimum' }],
-      'object-curly-spacing': [2, 'always'],
+      'object-curly-spacing': [2, 'always', { objectsInObjects: false }],
       'no-duplicate-imports': 2,
       'no-irregular-whitespace': 2,
       'no-multi-spaces': [2, {
