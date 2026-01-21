@@ -7,6 +7,9 @@ import tseslint from 'typescript-eslint'
 
 export default tseslint.config(
   {
+    ignores: ['coverage/**'],
+  },
+  {
     name: 'All files',
     files: ['**/*.{js,mjs}'],
     ignores: ['coverage/**'],
