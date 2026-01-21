@@ -1,3 +1,4 @@
+export function setAttributes(elements: HTMLElement | HTMLElement[] | HTMLCollection, fnAttributes: Record<string, any>): HTMLElement | HTMLCollection | HTMLElement[];
 export function clamp(val: number, min: number, max: number): number;
 export function round(number: number, precision?: number): number;
 export function capitalize(str: string): string;
