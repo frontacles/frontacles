@@ -155,14 +155,14 @@ describe('dom/setAttributes', () => {
 
   // <div style="color: red; opacity: 0.9">` (inline styles)
   test(`adds inline CSS with { style: { color: 'red', opacity: .9 }}`, () => {
-    setAttributes(el, { style: { color: 'red', opacity: .9 } })
+    setAttributes(el, { style: { color: 'red', opacity: .9 }})
     expect(el.style.color).toBe('red')
     expect(el.style.opacity).toBe('0.9')
 
     setAttributes(el, { style: {
       color: undefined, // invalid value, ignored
       opacity: null // remove property
-    } })
+    }})
     expect(el.style.color).toBe('red')
     expect(el.style.opacity).toBe('')
   })
@@ -176,7 +176,7 @@ describe('dom/setAttributes', () => {
     setAttributes(el, { style: {
       color: undefined, // invalid value, ignored
       opacity: null // remove property
-    } })
+    }})
     expect(el.style.color).toBe('red')
     expect(el.style.opacity).toBe('')
   })
