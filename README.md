@@ -21,6 +21,9 @@ We love tiny bits (using brotli compression):
 
 ### `setAttributes`
 
+> [!WARNING]  
+> This function is unreleased, but you can grab the code from the repository files.
+
 Updates attributes of HTML element(s).
 
 ```js
