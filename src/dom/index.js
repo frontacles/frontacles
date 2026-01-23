@@ -19,10 +19,10 @@
  * - `class` can also be a string with one or more classes (space-separated),
  *   or an array of classes.
  *
- * @param {Element[]|HTMLCollection} elements
+ * @template {Element | Element[] | HTMLCollection} T
+ * @param {T} elements
  * @param {Attributes} attributes
- *
- * @returns The received element(s). Use it for method chaining.
+ * @returns {T} The received element(s). Use it for method chaining.
  */
 export const setAttributes = (elements, attributes) => {
   const items = elements instanceof Element
@@ -116,4 +116,4 @@ const normalizeAttributes = fnAttributes => {
 /** @typedef {boolean|string|number|null|undefined} AttributePrimitive */
 /** @typedef {AttributePrimitive | Record<string, AttributePrimitive>} AttributeValue */
 /** @typedef {Record<string, AttributeValue>} BaseAttributes */
-/** @typedef {BaseAttributes & { class?: string[] | AttributeValue }} Attributes */
+/** @typedef {BaseAttributes | { class?: string[] | AttributeValue }} Attributes */

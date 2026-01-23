@@ -1,8 +1,8 @@
-export function setAttributes(elements: Element[] | HTMLCollection, attributes: Attributes): HTMLCollection | Element[];
+export function setAttributes<T extends Element | Element[] | HTMLCollection>(elements: T, attributes: Attributes): T;
 export type AttributePrimitive = boolean | string | number | null | undefined;
 export type AttributeValue = AttributePrimitive | Record<string, AttributePrimitive>;
 export type BaseAttributes = Record<string, AttributeValue>;
-export type Attributes = BaseAttributes & {
+export type Attributes = BaseAttributes | {
 	class?: string[] | AttributeValue;
 };
 export function clamp(val: number, min: number, max: number): number;
