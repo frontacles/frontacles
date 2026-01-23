@@ -18,7 +18,7 @@
     "types": "tsc && dts-bundle-generator --silent --no-banner=true -o types/index.d.ts types-transitive/index.d.ts",
     "posttypes": "node scripts/inject-jsdoc.mjs",
     "test": "vitest run",
-    "test:types": "npm exec tsd",
+    "test:types": "tstyche",
     "test:ui": "vitest --ui --coverage.enabled --coverage.exclude=types",
     "test:watch": "vitest",
     "coverage": "vitest run --coverage --coverage.exclude=types",
@@ -66,7 +66,7 @@
     "eslint": "^9.9.0",
     "globals": "^17",
     "size-limit": "^12",
-    "tsd": "^0.33",
+    "tstyche": "^6.0.2",
     "typescript": "^5.5.4",
     "typescript-eslint": "^8",
     "vitest": "^4"

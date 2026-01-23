@@ -1,20 +1,20 @@
-import { expectError, expectType } from 'tsd'
-import { clamp, Email, isEmail, round } from '../src/index.js'
+import { clamp, Email, isEmail, round } from 'frontacles'
+import { expect } from 'tstyche'
 
 /**
  * Test math/*
  */
 
-expectType<number>(clamp(0, 1, 2))
-expectType<number>(round(Math.PI, 3))
+expect(clamp(0, 1, 2)).type.toBe<number>()
+expect(round(Math.PI, 3)).type.toBe<number>()
 
 /**
  * Test url/isEmail
  */
 
 const myEmail = new Email('someone@domain.tld')
-expectType<boolean>(isEmail('someone@domain.tld'))
-expectType<boolean>(isEmail(myEmail))
+expect(isEmail('someone@domain.tld')).type.toBe<boolean>()
+expect(isEmail(myEmail)).type.toBe<boolean>()
 
 /**
  * Test url/Email
@@ -22,22 +22,22 @@ expectType<boolean>(isEmail(myEmail))
 
 // Correct instantiations
 
-expectType<Email>(myEmail)
-expectType<string>(myEmail.username)
-expectType<string>(myEmail.hostname)
-expectType<Email>(new Email(myEmail))
+expect(myEmail).type.toBe<Email>()
+expect(myEmail.username).type.toBe<string>()
+expect(myEmail.hostname).type.toBe<string>()
+expect(new Email(myEmail)).type.toBe<Email>()
 
 // Wrong instantiation
 
-expectError(() => new Email(123))
+expect(Email).type.not.toBeConstructableWith(123)
 
 // Check parsing
 
-expectType<boolean>(Email.canParse('someone@domain.tld'))
-expectType<boolean>(Email.canParse(myEmail))
-expectType<boolean>(Email.canParse(new Date()))
+expect(Email.canParse('someone@domain.tld')).type.toBe<boolean>()
+expect(Email.canParse(myEmail)).type.toBe<boolean>()
+expect(Email.canParse(new Date())).type.toBe<boolean>()
 
 // Stringification
 
-expectType<string>(myEmail.toString())
-expectType<string>(`${myEmail}`)
+expect(myEmail.toString()).type.toBe<string>()
+expect(`${myEmail}`).type.toBe<string>()
