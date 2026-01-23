@@ -41,9 +41,10 @@ export const setAttributes = (elements, fnAttributes) => {
     )
     .forEach(([name, value]) => {
       delete attributes[name]
-      for (const attrName in value) {
-        attributes[`${name}-${attrName}`] = value[attrName]
-      }
+
+      Object.entries(value).forEach(([attrName, attrValue]) => {
+        attributes[`${name}-${attrName}`] = attrValue
+      })
     })
 
   // Normalize `class` attribute from string to array.
@@ -79,18 +80,16 @@ export const setAttributes = (elements, fnAttributes) => {
         if (name == 'data') {
           Object.assign(element.dataset, value)
 
-          for (const dataKey in value) {
+          return Object.entries(value).forEach(([dataKey, dataValue]) => {
             /**
             * Remove `data-*` prop if their value is `null` or `undefined`,
             * because `dataset` stringify them but `setAttributes` apply
             * the logic of regular HTML attributes to all attributes.
             */
-            if (value[dataKey] == null) {
+            if (dataValue == null) {
               delete element.dataset[dataKey]
             }
-          }
-
-          return
+          })
         }
 
         // `style` attribute (inline styles)
