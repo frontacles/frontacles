@@ -20,16 +20,64 @@
  *   or an array of classes.
  *
  * @param {Element[]|HTMLCollection} elements
- * @param {Record<string, any>} fnAttributes
- * {@link https://github.com/meduzen/setAttributes}
+ * @param {Record<string, any>} attributes
  *
  * @returns The received element(s), for chaining fans.
  */
-export const setAttributes = (elements, fnAttributes) => {
+export const setAttributes = (elements, attributes) => {
   const items = elements instanceof Element
     ? [elements]
     : [...elements]
 
+  attributes = normalizeAttributes(attributes)
+
+  items.forEach(element =>
+    attributes.forEach(([name, value]) => {
+      if (value == null) {
+        return element.removeAttribute(name)
+      }
+
+      // CSS `class`, as array or object.
+      if (name == 'class') {
+        return Array.isArray(value)
+          ? element.classList.add(...value)
+          : Object.entries(value).forEach(([className, classState]) =>
+            element.classList.toggle(className, classState)
+          )
+      }
+
+      // Only `data` and `style` can go in this `if`.
+      if (typeof value == 'object') {
+
+        // `style` attribute (inline styles)
+        if (name == 'style') {
+          return Object.assign(element.style, value)
+        }
+
+        // `data-*` attributes (using `dataset`)
+        Object.assign(element.dataset, value)
+
+        return Object.entries(value).forEach(([dataKey, dataValue]) => {
+          /**
+          * Remove `data-*` prop if their value is `null` or `undefined`,
+          * because `dataset` stringify them but `setAttributes` apply
+          * the logic of regular HTML attributes to all attributes.
+          */
+          if (dataValue == null) {
+            delete element.dataset[dataKey]
+          }
+        })
+      }
+
+      element.setAttribute(name, value)
+    })
+  )
+
+  return elements
+}
+
+/** @param {Record<string, any>} fnAttributes */
+const normalizeAttributes = fnAttributes => {
   const attributes = { ...fnAttributes }
 
   // Normalize object attributes.
@@ -53,54 +101,11 @@ export const setAttributes = (elements, fnAttributes) => {
   }
 
   // Normalize boolean attributes.
-  const attrEntries = Object.entries(attributes)
-    .map(([name, value]) => typeof value == 'boolean'
-      ? [name, value ? '' : null]
-      : [name, value]
-    )
-
-  items.forEach(element =>
-    attrEntries.forEach(([name, value]) => {
-      if (value == null) {
-        return element.removeAttribute(name)
-      }
-
-      // CSS `class`, as array or object.
-      if (name == 'class') {
-        return Array.isArray(value)
-          ? element.classList.add(...value)
-          : Object.entries(value).forEach(([className, classState]) =>
-            element.classList.toggle(className, classState)
-          )
-      }
-
-      if (typeof value == 'object') {
-
-        // `data-*` attributes (using `dataset`)
-        if (name == 'data') {
-          Object.assign(element.dataset, value)
-
-          return Object.entries(value).forEach(([dataKey, dataValue]) => {
-            /**
-            * Remove `data-*` prop if their value is `null` or `undefined`,
-            * because `dataset` stringify them but `setAttributes` apply
-            * the logic of regular HTML attributes to all attributes.
-            */
-            if (dataValue == null) {
-              delete element.dataset[dataKey]
-            }
-          })
-        }
-
-        // `style` attribute (inline styles)
-        if (name == 'style') {
-          return Object.assign(element.style, value)
-        }
-      }
-
-      element.setAttribute(name, value)
-    })
-  )
-
-  return elements
+  return Object.entries(attributes)
+    .map(([name, value]) => [
+      name,
+      typeof value == 'boolean'
+        ? (value ? '' : null) // `true` becomes `''`, `false` becomes `null`
+        : value // not boolean
+    ])
 }
