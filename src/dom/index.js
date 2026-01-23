@@ -8,10 +8,10 @@
  *   - `false`, `null` and `undefined` removes the attribute from the HTML
  * - objects:
  *   - `class` will add/remove CSS classes from `{ className: state }` entries
- *   - `data` is pushed to `HTMLElement.dataset`, but a data property being
+ *   - `data` is pushed to `Element.dataset`, but a `data` property that is
  *     `null` or `undefined` removes its `data-*` attribute from the HTML:
  *     `{ data: { id: 1, enabled: false }}` gives `<p data-id="1">`
- *   - `style` is pushed to `HTMLElement.style` (inline CSS):
+ *   - `style` is pushed to `Element.style` (inline CSS):
  *     `{ style: { color: 'red', gap: '2px' }}` gives
  *     `<p style="color: red; gap: 2px;">`
  *   - all other objects are converted the same way:
@@ -19,16 +19,14 @@
  * - `class` can also be a string with one or more classes (space-separated),
  *   or an array of classes.
  *
- * @todo Check how it behaves on SVGs.
- *
- * @param {HTMLElement|HTMLElement[]|HTMLCollection} elements
+ * @param {Element[]|HTMLCollection} elements
  * @param {Record<string, any>} fnAttributes
  * {@link https://github.com/meduzen/setAttributes}
  *
  * @returns The received element(s), for chaining fans.
  */
 export const setAttributes = (elements, fnAttributes) => {
-  const items = elements instanceof HTMLElement
+  const items = elements instanceof Element
     ? [elements]
     : [...elements]
 

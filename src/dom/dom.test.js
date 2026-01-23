@@ -1,23 +1,53 @@
 import { describe, expect, test } from 'vitest'
 import { page } from 'vitest/browser'
 import { setAttributes } from './index.js'
-import { createElement } from './test-utils/index.js'
+import { createElement, createElementNS } from './test-utils/index.js'
 
 describe('dom/setAttributes', () => {
   const el = createElement('div', { 'data-testid': 'el-1' })
   const elTwo = createElement('div', { 'data-testid': 'el-2' })
 
-  document.body.append(el, elTwo)
+  const svg = createElementNS('svg', 'svg', { 'data-testid': 'svg-1' })
+  const svgTwo = createElementNS('svg', 'svg', { 'data-testid': 'svg-2' })
+
+  const svgSpritesheet = `
+    <svg style="display: none;">
+      <symbol id="mastodon-path" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 22 24" fill="currentColor" fill-rule="evenodd">
+          <path d="M15.68 18.293c2.954-.359 5.528-2.213 5.85-3.905h.002c.509-2.667.467-6.509.467-6.509 0-5.206-3.352-6.732-3.352-6.732C16.956.357 14.054.025 11.039 0h-.075C7.95.025 5.05.357 3.358 1.147c0 0-3.352 1.526-3.352 6.732l-.003.998c-.005.959-.01 2.022.018 3.132.122 5.09.918 10.108 5.543 11.356 2.133.574 3.965.695 5.44.612 2.675-.152 4.176-.972 4.176-.972l-.088-1.974s-1.913.613-4.058.538c-2.127-.074-4.373-.234-4.717-2.89a5.587 5.587 0 01-.047-.745s2.088.518 4.733.642c1.618.076 3.136-.097 4.676-.283zm2.365-3.705V8.284c0-1.29-.323-2.313-.97-3.07-.668-.758-1.542-1.146-2.628-1.146-1.256 0-2.207.49-2.836 1.473l-.612 1.043-.61-1.043c-.63-.982-1.58-1.473-2.836-1.473-1.086 0-1.962.388-2.628 1.146-.648.757-.971 1.78-.971 3.07v6.304h2.455v-6.12c0-1.289.533-1.944 1.6-1.944 1.18 0 1.77.777 1.77 2.312v3.35h2.44v-3.35c0-1.536.592-2.312 1.772-2.312 1.066 0 1.6.655 1.6 1.945v6.119h2.454z"/>
+      </symbol>
+
+      <!-- https://boxicons.com/ -->
+      <symbol id="code-path" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
+          <path d="M8.3 6.3L2.6 12l5.7 5.7 1.4-1.4L5.4 12l4.3-4.3zm7.4 11.4l5.7-5.7-5.7-5.7-1.4 1.4 4.3 4.3-4.3 4.3z"/>
+      </symbol>
+  </svg>`
+
+  document.body.append(el, elTwo, svg, svgTwo)
+  document.body.insertAdjacentHTML('beforeend', svgSpritesheet)
 
   const locator = page.getByTestId('el-1')
   const locatorTwo = page.getByTestId('el-2')
   const collection = document.getElementsByTagName('div')
 
+  const locatorSvg = page.getByTestId('svg-1')
+  const locatorSvgTwo = page.getByTestId('svg-2')
+  const svgCollection = document.getElementsByTagName('svg')
+  const symbols = document.getElementsByTagName('symbol')
+
   test('DOM setup is ready', () => {
     expect(locator).toBeInTheDocument()
+    expect(locator.element()).toBeInstanceOf(HTMLElement)
     expect(locatorTwo).toBeInTheDocument()
     expect(collection).toBeInstanceOf(HTMLCollection)
     expect(collection).toHaveLength(2)
+
+    expect(locatorSvg).toBeInTheDocument()
+    expect(locatorSvg.element()).toBeInstanceOf(SVGElement)
+    expect(locatorSvgTwo).toBeInTheDocument()
+    expect(svgCollection).toBeInstanceOf(HTMLCollection)
+    expect(svgCollection).toHaveLength(3)
+    expect(symbols).toBeInstanceOf(HTMLCollection)
+    expect(symbols).toHaveLength(2)
   })
 
   test('setAttributes is a function', () => expect(setAttributes).toBeInstanceOf(Function))
@@ -206,7 +236,7 @@ describe('dom/setAttributes', () => {
     expect(locatorTwo).toHaveAttribute('attr', 'same same')
   })
 
-  test(`set then unset all kind of attributes on a HTML collection`, () => {
+  test(`set and unset all kinds of attributes on a HTML collection`, () => {
     setAttributes(collection, {
       data: { name: 'Hakim' },
       aria: { label: 'Hello, Hakim!' },
@@ -245,6 +275,63 @@ describe('dom/setAttributes', () => {
 
   /** SVGs */
 
-  test.todo('adds attributes on <svg>')
-  test.todo('adds attributes on <svg> child nodes')
+  test('adds attributes on <svg>', () => {
+    setAttributes(svg, { attr: 'word' })
+    expect(locatorSvg).toHaveAttribute('attr', 'word')
+
+    setAttributes(svg, { attr: false })
+    expect(locatorSvg).not.toHaveAttribute('attr')
+  })
+
+  test('handles CSS classes on `<svg>` with { class: /* string or object */', () => {
+
+    // should add
+    setAttributes(svg, { class: { btn: true, 'btn--secondary': true }})
+    setAttributes(svg, { class: ['card__btn'] })
+    setAttributes(svg, { class: 'card__btn--special' })
+    setAttributes(svg, { class: 'card__btn--1 card__btn--2' })
+    expect(locatorSvg).toHaveClass('btn', 'btn--secondary', 'card__btn', 'card__btn--special', 'card__btn--1', 'card__btn--2')
+
+    // should remove
+    setAttributes(svg, { class: { 'btn--secondary': false }})
+    expect(locatorSvg).not.toHaveClass('btn--secondary')
+  })
+
+  test(`set and unset all kinds of attributes on a HTML collection of <svg>`, () => {
+    setAttributes(svgCollection, {
+      data: { name: 'Hakim' },
+      aria: { label: 'Hello, Hakim!' },
+      word: 'yes',
+    })
+
+    expect(svg.dataset.name).toBe('Hakim')
+    expect(svgTwo.dataset.name).toBe('Hakim')
+    expect(locatorSvg).toHaveAttribute('aria-label', 'Hello, Hakim!')
+    expect(locatorSvgTwo).toHaveAttribute('aria-label', 'Hello, Hakim!')
+    expect(locatorSvg).toHaveAttribute('word', 'yes')
+    expect(locatorSvgTwo).toHaveAttribute('word', 'yes')
+
+    // remove attributes
+
+    setAttributes(svgCollection, {
+      data: { name: null },
+      aria: { label: undefined },
+      word: false,
+    })
+
+    expect(svg.dataset).not.toHaveProperty('name')
+    expect(svgTwo.dataset).not.toHaveProperty('name')
+    expect(locatorSvg).not.toHaveAttribute('aria-label')
+    expect(locatorSvgTwo).not.toHaveAttribute('aria-label')
+    expect(locatorSvg).not.toHaveAttribute('word')
+    expect(locatorSvgTwo).not.toHaveAttribute('word')
+  })
+
+  test('adds attributes on <svg> child nodes', () => {
+    setAttributes(symbols, { id: null })
+    expect(symbols.item(0)).not.toHaveAttribute('id')
+
+    setAttributes(symbols, { id: 'mastodon-path' })
+    expect(symbols.item(0)).toHaveAttribute('id', 'mastodon-path')
+  })
 })

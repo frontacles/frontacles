@@ -21,7 +21,7 @@ We love tiny bits (using brotli compression):
 
 ### `setAttributes`
 
-Updates in bulk the attribute(s) of one or many HTML element(s).
+Updates in bulk the attribute(s) of one or many HTML or SVG element(s).
 
 ```js
 import { setAttributes } from 'frontacles/dom'
@@ -45,7 +45,7 @@ setAttributes(widget, { loading: false })
 setAttributes(widget, { loading: 'false' })
 ```
 
-Providing multiple HTML elements (array or [HTML collection](https://developer.mozilla.org/en-US/docs/Web/API/HTMLCollection)) sets the same attributes values to all of them:
+Providing multiple elements (array or [HTML collection](https://developer.mozilla.org/en-US/docs/Web/API/HTMLCollection)) sets the same attributes values to all of them:
 
 ```js
 const animals = widget.getElementsbyClassName('.list-item')
