@@ -9,19 +9,19 @@ We love tiny bits (using brotli compression):
 
 | category | util | size | description |
 | --- | --- | --- | --- |
-| DOM | [`setAttributes`](#setattributes) | 349 B | Update multiple attributes on multiple HTML elements |
+| DOM | [`setAttributes`](#setattributes) | 338 B | Update multiple attributes on multiple HTML elements |
 | math | [`clamp`](#clamp) | 35 B | Make sure a number stays in a given range. |
 | math | [`round`](#round) | 38 B | Round a number to a given precision |
 | string | [`capitalize`](#capitalize) | 40 B | Capitalize the first letter of a string. |
 | URL | [`isEmail`](#isemail) | 86 B | Wheither a variable is a valid email address. |
 | URL | [`Email`](#email) | 173 B | An `Email` object with validation and separate access to an email username and domain. |
-|  | **everything** | 657 B | |
+|  | **everything** | 645 B | |
 
 ## DOM utils
 
 ### `setAttributes`
 
-Updates in bulk the attribute(s) of one or many HTML or SVG element(s).
+Updates attributes of HTML or SVG element(s).
 
 ```js
 import { setAttributes } from 'frontacles/dom'
@@ -45,7 +45,7 @@ setAttributes(widget, { loading: false })
 setAttributes(widget, { loading: 'false' })
 ```
 
-Providing multiple elements (array or [HTML collection](https://developer.mozilla.org/en-US/docs/Web/API/HTMLCollection)) sets the same attributes values to all of them:
+`setAttributes` also accepts multiple elements (array or [HTML collection](https://developer.mozilla.org/en-US/docs/Web/API/HTMLCollection)):
 
 ```js
 const animals = widget.getElementsbyClassName('.list-item')
@@ -92,10 +92,9 @@ setAttributes(el, { data: { 'max-items': null }}) // no more `data-max-items`
 ```
 
 > [!NOTE]  
-> `data` is using [`dataset`](https://developer.mozilla.org/en-US/docs/Web/API/HTMLElement/dataset) under the hood but differs from it: in the previous example of property removal, `el.dataset.maxItems = null` would have stringify `null` into `'null'`, giving `data-max-items="null"` instead of a removal. `setAttributes` applies this logic to all types of values.
+> `data` is using [`dataset`](https://developer.mozilla.org/en-US/docs/Web/API/HTMLElement/dataset) under the hood, but differs from it: `setAttributes` removes any attribute with a `null` value while `dataset` turn `null` into a string. In the previous example, `el.dataset.maxItems = null` would have given `data-max-items="null"` instead of removing the attribute.
 
-
-`class` deals with CSS classes. It can be an array of CSS classes or a string containing one or more (space-separated) classes that will be added to the element(s). It can also be an object in the form of `{ className: state }`, defining of each class should be added or removed from the element.
+`class` updates… CSS classes. It can be an array of CSS classes, a string containing one or more (space-separated) classes, or an object in the form of `{ className: state }`, defining which classes should be added or removed from the element.
 
 ```js
 // <div class="btn btn--xl">
@@ -114,7 +113,7 @@ setAttributes(el, { class: 'card__btn--1 card__btn--2' })
 setAttributes(el, { class: { 'btn--xl': false }})
 ```
 
-When `style` is an object, it behaves like [`HTMLElement.style`](). When it’s a string, it completely replaces the attribute.
+When `style` is an object, it behaves like [`HTMLElement.style`](https://developer.mozilla.org/en-US/docs/Web/API/HTMLElement/style). When it’s a string, it completely replaces the attribute.
 
 ```js
 // <div style="color: red; opacity: 0.9">

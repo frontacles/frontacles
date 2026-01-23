@@ -22,7 +22,7 @@
  * @param {Element[]|HTMLCollection} elements
  * @param {Record<string, any>} attributes
  *
- * @returns The received element(s), for chaining fans.
+ * @returns The received element(s). Use it for method chaining.
  */
 export const setAttributes = (elements, attributes) => {
   const items = elements instanceof Element
@@ -80,7 +80,10 @@ export const setAttributes = (elements, attributes) => {
 const normalizeAttributes = fnAttributes => {
   const attributes = { ...fnAttributes }
 
-  // Normalize object attributes.
+  /**
+   * Normalize object attributes.
+   * It turns `{ key: { name: value }}` into `'key-name="value"'`.
+   */
   Object.entries(attributes)
     .filter(([name, value]) =>
       value
@@ -100,12 +103,12 @@ const normalizeAttributes = fnAttributes => {
     attributes.class = attributes.class.split(' ')
   }
 
-  // Normalize boolean attributes.
+  // Normalize boolean attributes: `true` becomes `''`, `false` becomes `null`.
   return Object.entries(attributes)
     .map(([name, value]) => [
       name,
       typeof value == 'boolean'
-        ? (value ? '' : null) // `true` becomes `''`, `false` becomes `null`
+        ? (value ? '' : null)
         : value // not boolean
     ])
 }
