@@ -10,8 +10,6 @@ This project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.htm
 
 ### New
 
-#### DOM
-
 - Add [`setAttributes`](./README.md#setattributes), a function to update HTML attributes on any number of elements.
 
 ### Under the hood
