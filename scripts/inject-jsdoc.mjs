@@ -29,5 +29,5 @@ readFile('types/index.d.ts', 'utf-8', function (err, data) {
 	declare username: string;`
   )
 
-  writeFile('types/index.d.ts', data, () => {});
-});
+  writeFile('types/index.d.ts', data, () => {})
+})

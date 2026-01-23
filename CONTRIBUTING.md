@@ -21,6 +21,12 @@ When reporting a bug, here are the informations you can provide to help other pe
 - technical context (like Node or browser version);
 - a clear description of the issue you are facing, with the less possible code required to understand or reproduce the issue.
 
+## Tests
+
+Tests are using [Vitest](https://vitest.dev), and a command for [its UI](https://vitest.dev/guide/ui.html) is available (`npm run test:ui`).
+
+[Playwright](https://playwright.dev) is used via [Vitest browser mode](https://vitest.dev/guide/browser) to test utilities using APIs that are only available in the browser. If you need a screenshot of a failing test for debug purpose, look into `.env.example`.
+
 ## Pull requests
 
 Before submitting code, the changes you bring should:
@@ -28,8 +34,6 @@ Before submitting code, the changes you bring should:
 - have written tests that don’t fail when they are run (`npm run test`)
 - have updated [JSDoc comments](https://jsdoc.app/), updated types (`npm run types`) that are tested (`npm run test:types`);
 - respect the code styles (`npm run lint:fix`) defined using [EditorConfig](https://editorconfig.org/) and [ESLint](https://eslint.org).
-
-Tests are using Vitest, and a command for [its UI](https://vitest.dev/guide/ui.html) is available (`npm run test:ui`).
 
 There’s a pull request template to remind you of that when you open a pull request.
 
