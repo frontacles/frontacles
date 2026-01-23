@@ -1,4 +1,10 @@
-export function setAttributes(elements: Element[] | HTMLCollection, fnAttributes: Record<string, any>): HTMLCollection | Element[];
+export function setAttributes(elements: Element[] | HTMLCollection, attributes: Attributes): HTMLCollection | Element[];
+export type AttributePrimitive = boolean | string | number | null | undefined;
+export type AttributeValue = AttributePrimitive | Record<string, AttributePrimitive>;
+export type BaseAttributes = Record<string, AttributeValue>;
+export type Attributes = BaseAttributes & {
+	class?: string[] | AttributeValue;
+};
 export function clamp(val: number, min: number, max: number): number;
 export function round(number: number, precision?: number): number;
 export function capitalize(str: string): string;

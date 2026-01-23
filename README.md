@@ -9,9 +9,9 @@ We love tiny bits (using brotli compression):
 
 | category | util | size | description |
 | --- | --- | --- | --- |
-| DOM | [`setAttributes`](#setattributes) | 338 B | Update multiple attributes on multiple HTML elements |
+| DOM | [`setAttributes`](#setattributes) | 338 B | Updates attributes of HTML or SVG element(s). |
 | math | [`clamp`](#clamp) | 35 B | Make sure a number stays in a given range. |
-| math | [`round`](#round) | 38 B | Round a number to a given precision |
+| math | [`round`](#round) | 38 B | Round a number to a given precision. |
 | string | [`capitalize`](#capitalize) | 40 B | Capitalize the first letter of a string. |
 | URL | [`isEmail`](#isemail) | 86 B | Wheither a variable is a valid email address. |
 | URL | [`Email`](#email) | 173 B | An `Email` object with validation and separate access to an email username and domain. |
@@ -21,7 +21,7 @@ We love tiny bits (using brotli compression):
 
 ### `setAttributes`
 
-Updates attributes of HTML or SVG element(s).
+Updates attributes of HTML element(s).
 
 ```js
 import { setAttributes } from 'frontacles/dom'
@@ -130,6 +130,8 @@ setAttributes(el, { style: { opacity: null }})
 // <div style="gap: 2px; opacity: .9;">
 setAttributes(el, { style: 'gap: 2px; opacity: .9;')
 ```
+
+`setAttributes` also works on any SVG or descendant elements.
 
 ## Math utils
 

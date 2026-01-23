@@ -1,5 +1,5 @@
 /**
- * Bulk update of attributes on one or many HTML element(s).
+ * Bulk update attributes of HTML element(s).
  *
  * Specific behaviour for the following types of values:
  *
@@ -20,7 +20,7 @@
  *   or an array of classes.
  *
  * @param {Element[]|HTMLCollection} elements
- * @param {Record<string, any>} attributes
+ * @param {Attributes} attributes
  *
  * @returns The received element(s). Use it for method chaining.
  */
@@ -112,3 +112,8 @@ const normalizeAttributes = fnAttributes => {
         : value // not boolean
     ])
 }
+
+/** @typedef {boolean|string|number|null|undefined} AttributePrimitive */
+/** @typedef {AttributePrimitive | Record<string, AttributePrimitive>} AttributeValue */
+/** @typedef {Record<string, AttributeValue>} BaseAttributes */
+/** @typedef {BaseAttributes & { class?: string[] | AttributeValue }} Attributes */
