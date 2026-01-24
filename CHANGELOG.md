@@ -4,11 +4,21 @@ This project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.htm
 
 ## Unreleased
 
-Nothing for now.
+<!--Nothing for now.-->
 
 <!-- ⚠️ Before a new release, make sure the documentation doesn't contain any **unreleased** mention.  -->
 
-<!-- Compare with [last published version](https://github.com/frontacles/frontacles/compare/0.4.0...main). -->
+Compare with [last published version](https://github.com/frontacles/frontacles/compare/0.4.0...main). 
+
+### New
+
+- Add [`setAttributes`](./README.md#setattributes), a function to update HTML attributes on any number of elements.
+
+### Under the hood
+
+- Setup tests for DOM utilities using Playwright via Vitest browser mode.
+- Migrate types testing from `tsd` to TSTyche.
+- Bump Node version from 20 to 22.
 
 ## v0.4.0 (2025-03-08)
 
