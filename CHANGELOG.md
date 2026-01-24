@@ -4,11 +4,15 @@ This project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.htm
 
 ## Unreleased
 
-<!--Nothing for now.-->
+Nothing for now.
+
+<!-- Compare with [last published version](https://github.com/frontacles/frontacles/compare/0.5.0...main).  -->
 
 <!-- ⚠️ Before a new release, make sure the documentation doesn't contain any **unreleased** mention.  -->
 
-Compare with [last published version](https://github.com/frontacles/frontacles/compare/0.4.0...main). 
+## v0.5.0 (2026-01-24)
+
+Compare with [last published version](https://github.com/frontacles/frontacles/compare/0.4.0...0.5.0). 
 
 ### New
 
