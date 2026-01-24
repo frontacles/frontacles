@@ -116,4 +116,6 @@ const normalizeAttributes = fnAttributes => {
 /** @typedef {boolean|string|number|null|undefined} AttributePrimitive */
 /** @typedef {AttributePrimitive | Record<string, AttributePrimitive>} AttributeValue */
 /** @typedef {Record<string, AttributeValue>} BaseAttributes */
-/** @typedef {BaseAttributes | { class?: string[] | AttributeValue }} Attributes */
+/** @typedef {{ class?: string | string[] | Record<string, boolean> }} ClassAttribute */
+/** @typedef {{ style?: AttributePrimitive | CSSStyleDeclaration }} StyleAttribute */
+/** @typedef {BaseAttributes | ClassAttribute | StyleAttribute} Attributes */

@@ -2,9 +2,13 @@ export function setAttributes<T extends Element | Element[] | HTMLCollection>(el
 export type AttributePrimitive = boolean | string | number | null | undefined;
 export type AttributeValue = AttributePrimitive | Record<string, AttributePrimitive>;
 export type BaseAttributes = Record<string, AttributeValue>;
-export type Attributes = BaseAttributes | {
-	class?: string[] | AttributeValue;
+export type ClassAttribute = {
+	class?: string | string[] | Record<string, boolean>;
 };
+export type StyleAttribute = {
+	style?: AttributePrimitive | CSSStyleDeclaration;
+};
+export type Attributes = BaseAttributes | ClassAttribute | StyleAttribute;
 export function clamp(val: number, min: number, max: number): number;
 export function round(number: number, precision?: number): number;
 export function capitalize(str: string): string;

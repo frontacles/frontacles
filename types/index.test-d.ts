@@ -11,10 +11,11 @@ expect(setAttributes(div, { attr: 1 })).type.toBe<HTMLDivElement>()
 expect(setAttributes(collection, { attr: 1 })).type.toBe<HTMLCollection>()
 expect(setAttributes).type.toBeCallableWith(div, { attr: null })
 expect(setAttributes).type.toBeCallableWith(div, { attr: undefined })
-expect(setAttributes).type.toBeCallableWith(div, { attr: 1 })
 expect(setAttributes).type.toBeCallableWith(collection, { attr: 1 })
+expect(setAttributes).type.toBeCallableWith(div, { class: 'btn' })
 expect(setAttributes).type.toBeCallableWith(div, { class: ['btn'] })
-expect(setAttributes).type.toBeCallableWith(div, { class: ['btn'], data: { role: 'admin' } })
+expect(setAttributes).type.toBeCallableWith(div, { class: { btn: true }, data: { role: 'admin' } })
+expect(setAttributes).type.toBeCallableWith(collection, { style: { color: 'red' } })
 expect(setAttributes).type.not.toBeCallableWith(div, { attr: ['btn'] })
 
 /**
