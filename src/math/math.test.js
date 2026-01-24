@@ -40,6 +40,6 @@ describe('math/clamp', () => {
   test('clamp(5, 0, Infinity)', () => expect(clamp(5, 0, Infinity)).toBe(5))
   test('clamp(-5, -Infinity, 10)', () => expect(clamp(-5, -Infinity, 10)).toBe(-5))
   test('clamp(Infinity, 0, 10)', () => expect(clamp(Infinity, 0, 10)).toBe(10))
-
+  test('clamp(3, 6, 2)', () => expect(clamp(3, 6, 2)).toBe(3))
   test('clamp(10, 5, 0) (min is bigger than max)', () => expect(clamp(10, 5, 0)).toBe(5))
 })

@@ -14,7 +14,9 @@
  * @param {number} min The lowest permitted value.
  * @param {number} max The highest permitted value.
  */
-export const clamp = (val, min, max) => Math.max(min, Math.min(max, val))
+export const clamp = (val, min, max) => min > max
+  ? clamp(val, max, min)
+  : Math.max(min, Math.min(max, val))
 
 /**
  * Round a number to the (optionally) provided precision.

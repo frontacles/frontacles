@@ -4,11 +4,15 @@ This project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.htm
 
 ## Unreleased
 
-Nothing for now.
-
-<!-- Compare with [last published version](https://github.com/frontacles/frontacles/compare/0.5.0...main).  -->
-
 <!-- ⚠️ Before a new release, make sure the documentation doesn't contain any **unreleased** mention.  -->
+
+Compare with [last published version](https://github.com/frontacles/frontacles/compare/0.5.0...main).
+
+<!-- Nothing for now. -->
+
+### Breaking
+
+- `clamp()` now automatically swaps `min` and `max` parameters if `min`is greater than `max`. Example: `clamp(3, 6, 2)` now returns `3` instead of `6`. This is only a breaking change if you relied on the previous behavior.
 
 ## v0.5.0 (2026-01-24)
 

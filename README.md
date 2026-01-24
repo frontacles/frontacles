@@ -162,7 +162,7 @@ clamp(Infinity, 0, 10) // 10
 ```
 
 > [!NOTE]  
-> `clamp` mostly follows [`Math.clamp` TC39 proposal](https://github.com/tc39/proposal-math-clamp), except it doesn’t throw if you flip the order of the _min_ (2nd parameter) and _max_ (3rd parameter) numbers.
+> `clamp` mostly follows [`Math.clamp` TC39 proposal](https://github.com/tc39/proposal-math-clamp), except it automatically swaps `min` and `max` if they are in the wrong order (instead of throwing like the proposal).
 
 ### `round`
 
