@@ -9,12 +9,129 @@ We love tiny bits (using brotli compression):
 
 | category | util | size | description |
 | --- | --- | --- | --- |
+| DOM | [`setAttributes`](#setattributes) | 338 B | Updates attributes of HTML or SVG element(s). |
 | math | [`clamp`](#clamp) | 35 B | Make sure a number stays in a given range. |
-| math | [`round`](#round) | 38 B | Round a number to a given precision |
+| math | [`round`](#round) | 38 B | Round a number to a given precision. |
 | string | [`capitalize`](#capitalize) | 40 B | Capitalize the first letter of a string. |
-| url | [`isEmail`](#isemail) | 86 B | Wheither a variable is a valid email address. |
-| url | [`Email`](#email) | 173 B | An `Email` object with validation and separate access to an email username and domain. |
-|  | **everything** | 328 B | |
+| URL | [`isEmail`](#isemail) | 86 B | Wheither a variable is a valid email address. |
+| URL | [`Email`](#email) | 173 B | An `Email` object with validation and separate access to an email username and domain. |
+|  | **everything** | 645 B | |
+
+## DOM utils
+
+### `setAttributes`
+
+Updates attributes of HTML element(s).
+
+```js
+import { setAttributes } from 'frontacles/dom'
+
+const widget = getElementById('animal-widget')
+
+// `<div name="Animal widget" loading="true">`
+setAttributes(widget, {
+  name: 'Animal widget'
+  loading: true,
+})
+```
+
+To remove an attribute, set its value to `false`, `null` or `undefined`.
+
+```js
+// `<div name="Animal widget">`
+setAttributes(widget, { loading: false })
+
+// `<div name="Animal widget" loading="false">`
+setAttributes(widget, { loading: 'false' })
+```
+
+`setAttributes` also accepts multiple elements (array or [HTML collection](https://developer.mozilla.org/en-US/docs/Web/API/HTMLCollection)):
+
+```js
+const animals = widget.getElementsbyClassName('.list-item')
+
+// `<li class="list-item" data-cat="animals">cat</li>`
+setAttributes(animals, { 'data-cat': 'animals' })
+```
+
+When an attribute is an object, its properties are converted to `attrName-propName` attributes, making it helpful for any bulk update of `aria-*` or `data-*` attributes:
+
+```js
+setAttributes(el, {
+  loading: true,
+  aria: {
+    busy: true,
+    live: 'polite',
+  },
+  data: {
+    category: 'boats',
+    'max-items': 12,
+  },
+  user: {
+    id: 4,
+    name: 'Liz',
+  },
+})
+```
+
+The previous example gives:
+
+```html
+<div
+  loading="true"
+  aria-busy="true" aria-live="polite"
+  data-category="boats" data-max-items="12"
+  user-id="4" user-name="Liz"
+>
+```
+
+Like for non-object attributes, using `false`, `null` or `undefined` as property value will remove the matching attribute from the HTML:
+
+```js
+setAttributes(el, { data: { 'max-items': null }}) // no more `data-max-items`
+```
+
+> [!NOTE]  
+> `data` is using [`dataset`](https://developer.mozilla.org/en-US/docs/Web/API/HTMLElement/dataset) under the hood, but differs from it: `setAttributes` removes any attribute with a `null` value while `dataset` turn `null` into a string. In the previous example, `el.dataset.maxItems = null` would have given `data-max-items="null"` instead of removing the attribute.
+
+`class` updates… CSS classes. It can be an array of CSS classes, a string containing one or more (space-separated) classes, or an object in the form of `{ className: state }`, defining which classes should be added or removed from the element.
+
+```js
+// <div class="btn btn--xl">
+setAttributes(el, { class: { btn: true, 'btn--xl': true }})
+
+// <div class="btn btn--xl card__btn">
+setAttributes(el, { class: ['card__btn'] })
+
+// <div class="btn btn--xl card__btn card__btn--special">
+setAttributes(el, { class: 'card__btn--special' })
+
+// <div class="btn btn--xl card__btn card__btn--special card__btn--1 card__btn--2">
+setAttributes(el, { class: 'card__btn--1 card__btn--2' })
+
+// <div class="btn card__btn card__btn--special card__btn--1 card__btn--2">
+setAttributes(el, { class: { 'btn--xl': false }})
+```
+
+When `style` is an object, it behaves like [`HTMLElement.style`](https://developer.mozilla.org/en-US/docs/Web/API/HTMLElement/style). When it’s a string, it completely replaces the attribute.
+
+```js
+// <div style="color: red; opacity: 0.9">
+setAttributes(el, {
+  style: {
+    color: 'red',
+    opacity: .9
+  }
+})
+
+// <div style="color: red;">
+setAttributes(el, { style: { opacity: null }})
+
+// <div style="gap: 2px; opacity: .9;">
+setAttributes(el, { style: 'gap: 2px; opacity: .9;')
+```
+
+`setAttributes` also works on any SVG or descendant elements.
 
 ## Math utils
 
@@ -45,7 +162,7 @@ clamp(Infinity, 0, 10) // 10
 ```
 
 > [!NOTE]  
-> `clamp` mostly follows [`Math.clamp` TC39 proposal](https://github.com/tc39/proposal-math-clamp), except it doesn’t throw if you flip the order of the _min_ (2nd parameter) and _max_ (3rd parameter) numbers.
+> `clamp` mostly follows [`Math.clamp` TC39 proposal](https://github.com/tc39/proposal-math-clamp), except it automatically swaps `min` and `max` if they are in the wrong order (instead of throwing like the proposal).
 
 ### `round`
 
