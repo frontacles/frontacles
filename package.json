@@ -56,14 +56,14 @@
     "access": "public"
   },
   "devDependencies": {
-    "@eslint/js": "^9.9.0",
+    "@eslint/js": "^10.0.1",
     "@size-limit/preset-small-lib": "^12",
     "@vitest/browser-playwright": "^4",
     "@vitest/coverage-v8": "^4",
     "@vitest/eslint-plugin": "^1.0.1",
     "@vitest/ui": "^4",
     "dts-bundle-generator": "^9.5.1",
-    "eslint": "^9.9.0",
+    "eslint": "^10.0.2",
     "globals": "^17",
     "size-limit": "^12",
     "tstyche": "^6.0.2",
