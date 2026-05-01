@@ -66,7 +66,7 @@
     "eslint": "^10.1.0",
     "globals": "^17",
     "size-limit": "^12",
-    "tstyche": "^6.0.2",
+    "tstyche": "^7.1.0",
     "typescript": "^6.0.2",
     "typescript-eslint": "^8",
     "vitest": "^4"
