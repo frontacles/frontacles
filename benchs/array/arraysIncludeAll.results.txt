@@ -1,0 +1,17 @@
+ ✓ array/arraysIncludeAll.bench.js > math/arrayIncludesAll 13608ms
+     name                                                 hz     min     max    mean     p75     p99    p995    p999     rme  samples
+   · includes all                              16,974,516.37  0.0000  0.2121  0.0001  0.0001  0.0001  0.0001  0.0002  ±0.14%  8487259   fastest
+   · includes all using Set(array)             10,439,437.54  0.0000  2.0435  0.0001  0.0001  0.0001  0.0001  0.0003  ±0.86%  5219719
+   · includes all using Set(array).isSubsetOf   4,410,402.79  0.0002  0.3220  0.0002  0.0002  0.0003  0.0004  0.0006  ±0.63%  2205202   slowest
+   · includes all using Set(Set)                8,567,313.50  0.0000  0.2081  0.0001  0.0001  0.0001  0.0002  0.0004  ±0.09%  4283657
+   · includes all using Set(Set).isSubsetOf     5,854,628.50  0.0001  0.8642  0.0002  0.0002  0.0002  0.0003  0.0006  ±0.82%  2927315
+   · directly using Set(Set).isSubsetOf         9,636,251.65  0.0000  0.1578  0.0001  0.0001  0.0001  0.0001  0.0003  ±0.14%  4818126
+
+ BENCH  Summary
+
+  includes all - array/arraysIncludeAll.bench.js > math/arrayIncludesAll
+    1.63x faster than includes all using Set(array)
+    1.76x faster than directly using Set(Set).isSubsetOf
+    1.98x faster than includes all using Set(Set)
+    2.90x faster than includes all using Set(Set).isSubsetOf
+    3.85x faster than includes all using Set(array).isSubsetOf

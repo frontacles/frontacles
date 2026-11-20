@@ -1,3 +1,6 @@
+export function subArray(haystack: any[], needles: any[]): boolean;
+export function subSet(haystack: Set<any>, needles: Set<any>): boolean;
+export function sameArray(a1: any[], a2: any[]): boolean;
 export function setAttributes<T extends Element | Element[] | HTMLCollection>(elements: T, attributes: Attributes): T;
 export type AttributePrimitive = boolean | string | number | null | undefined;
 export type AttributeValue = AttributePrimitive | Record<string, AttributePrimitive>;
