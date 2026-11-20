@@ -1,11 +1,13 @@
 import js from '@eslint/js'
 import vitest from '@vitest/eslint-plugin'
+// import jsdoc from 'eslint-plugin-jsdoc'
 import globals from 'globals'
 import tseslint from 'typescript-eslint'
 
 // Note: configs are cascading (https://eslint.org/docs/latest/use/configure/configuration-files#cascading-configuration-objects).
 
 export default tseslint.config(
+  // jsdoc.configs['flat/recommended-mixed'],
   {
     ignores: ['coverage/**'],
   },
