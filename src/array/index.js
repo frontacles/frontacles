@@ -6,8 +6,8 @@
  * - if a same needle is repeated, having it only once in the haystack still passes
  * - non-primitive values will be compared by reference
  *
- * @param {array} haystack The array with a greater or equal number of elements.
- * @param {array} needles The array with a smaller or equal number of elements.
+ * @param {Array} haystack The array with a greater or equal number of elements.
+ * @param {Array} needles The array with a smaller or equal number of elements.
  */
 export const subArray = (haystack, needles) => needles.every(needle => haystack.includes(needle))
 
@@ -24,7 +24,7 @@ export const subSet = (haystack, needles) => subArray([...haystack], [...needles
  * Compare two arrays by looking at their length and primitives.
  * Returns false if one of the parameters is not an array.
  *
- * @param {array} a1 An array.
- * @param {array} a2 Another array.
+ * @param {Array} a1 An array.
+ * @param {Array} a2 Another array.
  */
 export const sameArray = (a1, a2) => a1.length == a2.length && subArray(a1, a2)
